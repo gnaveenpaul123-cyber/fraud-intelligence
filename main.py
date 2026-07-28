@@ -1,3 +1,4 @@
+from collectors.image_downloader import download_image
 from utils.file_manager import (create_case_folder, save_metadata)
 import time
 from bs4 import BeautifulSoup
@@ -89,7 +90,6 @@ for subreddit in subreddits:
             print("="*80)
             print("POST DATA KEYS")
             print(list(post_data.keys()))
-            break
             summary = post_data.get("selftext", "") or summary
             text = (post.title + " " + summary).lower()
         entities = extract_entities(text)
@@ -113,7 +113,13 @@ for subreddit in subreddits:
         
         case_folder = create_case_folder(post.id)
         save_metadata(case_folder, record)
-        print("Evidence folder:",case_folder)
+        if "media_thumbnail" in post:
+            thumbnails = post.media_thumbnail
+            for index, image in enumerate(thumbnails, start=1):
+                image_url = image.get("url")
+                print(f"Downloading image {index}:{image_url}")
+                download_image(image_url, case_folder,index)
+                #print("Evidence folder:",case_folder)
 
 
         if record.phones or record.upi_ids:
