@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+reddit_upi_scams.xlsx
+evidence/
+*.db
+*.json
+*.xlsx
