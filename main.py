@@ -16,7 +16,6 @@ from models.scam_record import ScamRecord
 
 from collectors.reddit_collector import (
     fetch_reddit_rss_paginated,
-    fetch_full_post_text,
     fetch_reddit_post_data,
     clean_reddit_text
 )
@@ -61,35 +60,22 @@ for subreddit in subreddits:
         if post.link in seen_links:
             continue
         seen_links.add(post.link)
-        print("="*80)
-        print("POST ATTRIBUTES:")
-        print(post.keys())
+        
 
         summary = BeautifulSoup(post.summary, "html.parser").get_text()
         summary = clean_reddit_text(summary)
         text = (post.title + " " + summary).lower()
-        if "media_thumbnail" in post:
-            print("\nMEDIA THUMBNAIL:")
-            print(post.media_thumbnail)
-            print("\nLINKS")
-            print(post.link)
+            
         if not is_upi_related_keyword(text):
             continue
         passed_keyword += 1
 
-        # Post passed Stage 1 — fetch the full post body 
-        #full_text = fetch_full_post_text(post.link)
-        #if full_text:
-            #summary = full_text  # use full body for AI check and regex extraction
-            #text = (post.title + " " + summary).lower()
+       
         # Post passed Stage 1 — fetch the full Reddit post data
         post_data = fetch_reddit_post_data(post.link)
 
         if post_data:
             #print(post_data.keys())   # Temporary debugging
-            print("="*80)
-            print("POST DATA KEYS")
-            print(list(post_data.keys()))
             summary = post_data.get("selftext", "") or summary
             text = (post.title + " " + summary).lower()
         entities = extract_entities(text)
@@ -103,7 +89,7 @@ for subreddit in subreddits:
                 emails=entities["emails"],
                 urls=entities["urls"]
             )
-        time.sleep(2)  
+        #time.sleep(2)  
 
         # Stage 2: AI verification ---
         #if not is_upi_scam_ai(post.title, summary):
