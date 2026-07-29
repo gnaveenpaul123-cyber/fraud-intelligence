@@ -1,4 +1,6 @@
-
+from utils.evidence_writer import save_text_file
+from selenium_tools.evidence import save_screenshot
+from selenium_tools.browser import get_driver
 from extraction.qr_reader import extract_qr_text
 from extraction.ocr_reader import extract_text_from_image
 from collectors.image_downloader import download_image
@@ -24,7 +26,7 @@ from collectors.reddit_collector import (
 )
 
 from ai.ai_filter import analyze_scam
-
+driver = get_driver() 
 # Subreddits to monitor (r/fraud removed — subreddit no longer exists, returns 404)
 subreddits = [
     "IsThisAScamIndia"
@@ -122,6 +124,11 @@ for subreddit in subreddits:
 
                     print("OCR TEXT")
                     print(ocr_text)
+                    save_text_file(
+                        case_folder,
+                        "ocr.txt",
+                        ocr_text
+                    )
 
                     combined_text += "\n" + ocr_text
 
@@ -131,9 +138,14 @@ for subreddit in subreddits:
                     if qr_text:
                         print("QR TEXT")
                         print(qr_text)
+                        save_text_file(
+                            case_folder,
+                            "qr.txt",
+                            qr_text
+                        )
 
                         combined_text += "\n" + qr_text
-
+        
         # ----------------------------
         # Extract entities
         # ----------------------------
@@ -149,7 +161,7 @@ for subreddit in subreddits:
         if not important_entities:
             print("No important entities found. Skipping AI.")
             continue
-
+    
 # ----------------------------
 # AI Analysis
 # ----------------------------
@@ -167,6 +179,13 @@ for subreddit in subreddits:
 
         print("AI RESULT")
         print(ai_result)
+        print("\nOpening Reddit post in Selenium...")
+        driver.get(post.link)
+
+        time.sleep(5)
+
+        print("Page loaded successfully!")
+        save_screenshot(driver, case_folder)
         # ----------------------------
         # Create Scam Record
         # ----------------------------
@@ -229,3 +248,4 @@ save_last_seen(last_seen)
 
 save_workbook(wb, "reddit_upi_scams.xlsx")
 print("\n✅ reddit_upi_scams.xlsx created successfully (with Summary sheet)!")
+driver.quit()
