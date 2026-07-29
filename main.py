@@ -1,3 +1,6 @@
+from analysis.risk_engine import calculate_risk
+from extraction.qr_reader import extract_qr_text
+from extraction.ocr_reader import extract_text_from_image
 from collectors.image_downloader import download_image
 from utils.file_manager import (create_case_folder, save_metadata)
 import time
@@ -57,70 +60,131 @@ for subreddit in subreddits:
     newest_fullname_this_run = entries[0].get("id", "") if entries else None
 
     for post in entries:
+
         if post.link in seen_links:
             continue
         seen_links.add(post.link)
-        
 
+        # ----------------------------
+        # Get Reddit text
+        # ----------------------------
         summary = BeautifulSoup(post.summary, "html.parser").get_text()
         summary = clean_reddit_text(summary)
         text = (post.title + " " + summary).lower()
-            
+
         if not is_upi_related_keyword(text):
             continue
+
         passed_keyword += 1
 
-       
-        # Post passed Stage 1 — fetch the full Reddit post data
+        # ----------------------------
+        # Fetch full Reddit post
+        # ----------------------------
         post_data = fetch_reddit_post_data(post.link)
 
         if post_data:
-            #print(post_data.keys())   # Temporary debugging
             summary = post_data.get("selftext", "") or summary
             text = (post.title + " " + summary).lower()
-        entities = extract_entities(text)
-        record = ScamRecord(
-                subreddit=subreddit,
-                title=post.title,
-                summary=summary,
-                 link=post.link,
-                phones=entities["phones"],
-                upi_ids=entities["upi_ids"],
-                emails=entities["emails"],
-                urls=entities["urls"]
-            )
-        #time.sleep(2)  
 
-        # Stage 2: AI verification ---
-        #if not is_upi_scam_ai(post.title, summary):
-         #   print(f"Skipped (AI ruled not a UPI scam): {post.title}")
-          #  continue
+        # Start with Reddit text
+        combined_text = text
+
+        # ----------------------------
+        # AI Stage (temporarily bypassed)
+        # ----------------------------
         passed_ai += 1
-        
-        case_folder = create_case_folder(post.id)
-        save_metadata(case_folder, record)
-        if "media_thumbnail" in post:
-            thumbnails = post.media_thumbnail
-            for index, image in enumerate(thumbnails, start=1):
-                image_url = image.get("url")
-                print(f"Downloading image {index}:{image_url}")
-                download_image(image_url, case_folder,index)
-                #print("Evidence folder:",case_folder)
 
+        # ----------------------------
+        # Create evidence folder
+        # ----------------------------
+        case_folder = create_case_folder(post.id)
+
+        # ----------------------------
+        # Download images and OCR
+        # ----------------------------
+        if "media_thumbnail" in post:
+
+            thumbnails = post.media_thumbnail
+
+            for index, image in enumerate(thumbnails, start=1):
+
+                image_url = image.get("url")
+
+                print(f"Downloading image {index}: {image_url}")
+
+                saved_image = download_image(
+                    image_url,
+                    case_folder,
+                    index
+                )
+
+                if saved_image:
+
+    # OCR
+                    ocr_text = extract_text_from_image(saved_image)
+
+                    print("OCR TEXT")
+                    print(ocr_text)
+
+                    combined_text += "\n" + ocr_text
+
+    # QR Code
+                    qr_text = extract_qr_text(saved_image)
+
+                    if qr_text:
+                        print("QR TEXT")
+                        print(qr_text)
+
+                        combined_text += "\n" + qr_text
+
+        # ----------------------------
+        # Extract entities
+        # ----------------------------
+        entities = extract_entities(combined_text)
+
+        # ----------------------------
+        # Create Scam Record
+        # ----------------------------
+        record = ScamRecord(
+            subreddit=subreddit,
+            title=post.title,
+            summary=summary,
+            link=post.link,
+            phones=entities["phones"],
+            upi_ids=entities["upi_ids"],
+            emails=entities["emails"],
+            urls=entities["urls"]
+        )
+        risk = calculate_risk(record)
+        print("RISK SCORE:", risk["score"])
+        print("RISK LEVEL: ", risk["level"])
+        print("REASONS")
+
+        for reason in risk["reason"]:
+            print("-", reason)
+        # ----------------------------
+        # Save metadata
+        # ----------------------------
+        
 
         if record.phones or record.upi_ids:
             final_with_contact_info += 1
-
+        save_metadata(case_folder, record)
+        # ----------------------------
+        # Console output
+        # ----------------------------
         print("=" * 80)
         print("TITLE:", post.title)
         print("SUMMARY:", summary[:500])
         print("LINK:", post.link)
         print("URLs found:", record.urls)
-        # appending the info into workbook
+
+        # ----------------------------
+        # Excel output
+        # ----------------------------
         write_post(ws, record)
 
-        time.sleep(3)  # pause between AI calls to stay under rate limits
-
+        time.sleep(3)
     # addidng the numbers to worksheet
     write_summary(
     summary_ws,
