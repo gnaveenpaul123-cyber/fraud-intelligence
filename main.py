@@ -1,4 +1,4 @@
-from analysis.risk_engine import calculate_risk
+
 from extraction.qr_reader import extract_qr_text
 from extraction.ocr_reader import extract_text_from_image
 from collectors.image_downloader import download_image
@@ -23,7 +23,7 @@ from collectors.reddit_collector import (
     clean_reddit_text
 )
 
-from ai.ai_filter import is_upi_scam_ai
+from ai.ai_filter import analyze_scam
 
 # Subreddits to monitor (r/fraud removed — subreddit no longer exists, returns 404)
 subreddits = [
@@ -87,12 +87,9 @@ for subreddit in subreddits:
             text = (post.title + " " + summary).lower()
 
         # Start with Reddit text
-        combined_text = text
-
-        # ----------------------------
-        # AI Stage (temporarily bypassed)
-        # ----------------------------
-        passed_ai += 1
+        combined_text = post.title +"\n\n"+summary
+     
+        
 
         # ----------------------------
         # Create evidence folder
@@ -141,7 +138,35 @@ for subreddit in subreddits:
         # Extract entities
         # ----------------------------
         entities = extract_entities(combined_text)
+        # ----------------------------
+# Decide whether to call AI
+# ----------------------------
+        important_entities = (
+            entities["upi_ids"] or
+            entities["phones"]
+            )
 
+        if not important_entities:
+            print("No important entities found. Skipping AI.")
+            continue
+
+# ----------------------------
+# AI Analysis
+# ----------------------------
+        ai_result = analyze_scam(combined_text)
+
+        if not ai_result["is_scam"]:
+            print("AI classified as NOT a scam.")
+            continue
+
+        passed_ai += 1
+
+        confidence = ai_result["confidence"]
+        scam_type = ai_result["scam_type"]
+        ai_summary = ai_result["summary"]
+
+        print("AI RESULT")
+        print(ai_result)
         # ----------------------------
         # Create Scam Record
         # ----------------------------
@@ -151,17 +176,15 @@ for subreddit in subreddits:
             summary=summary,
             link=post.link,
             phones=entities["phones"],
+            
             upi_ids=entities["upi_ids"],
             emails=entities["emails"],
-            urls=entities["urls"]
+            urls=entities["urls"],
+            confidence = confidence,
+            scam_type = scam_type,
+            ai_summary = ai_summary
         )
-        risk = calculate_risk(record)
-        print("RISK SCORE:", risk["score"])
-        print("RISK LEVEL: ", risk["level"])
-        print("REASONS")
-
-        for reason in risk["reason"]:
-            print("-", reason)
+    
         # ----------------------------
         # Save metadata
         # ----------------------------

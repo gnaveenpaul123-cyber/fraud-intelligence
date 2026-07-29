@@ -9,39 +9,42 @@ import requests
 from config.settings import (GROQ_API_KEY, 
 GROQ_URL, 
 MODEL_NAME)
-def is_upi_scam_ai(title, summary):
+def analyze_scam(combined_text):
     """Stage 2: ask the model (via Groq) whether this is an actual UPI payment scam."""
-    prompt = f"""You are filtering Reddit posts for a UPI (India payment app) scam report.
-Only genuine, first-hand incident reports should be kept.
-Post title: {title}
-Post content: {summary[:1500]}
-Answer YES only if ALL of these are true:
-1. The post describes a SPECIFIC incident that happened to the poster or someone \
-they know personally (not a hypothetical, not general advice, not a news/blog \
-roundup of "common scams").
-2. The scam mechanism specifically involves UPI, PhonePe, GPay, BHIM, or a UPI \
-QR code — e.g. being tricked into scanning a QR code, sharing a UPI PIN, sending \
-money to a fake UPI ID, or receiving a fraudulent payment request via one of \
-these apps.
-3. There is a DISTINCT BAD-FAITH ACTOR — a scammer, fraudster, or con artist who \
-deliberately deceived or manipulated the poster. A bank, payment app, or technical \
-glitch is NOT a bad-faith actor.
-Answer NO for any of these cases:
-- General "here are the top N UPI scams" articles, blog posts, or educational lists
-- Posts only asking which UPI app is best, reviewing an app, or app bugs/complaints
-- The poster's own mistake (e.g. sent money to the wrong UPI ID by accident) with \
-no scammer/fraud involved
-- UPI mentioned only in passing while the actual scam involved a different method \
-(cash, card, bank transfer, crypto) with no UPI element
-- Posts about frozen/blocked bank accounts, KYC issues, or transaction failures \
-with no scam described
-- Technical glitches, double-charges, delayed refunds, failed transactions, or \
-bank/app customer-service disputes where no scammer tricked anyone — even if the \
-poster lost money or is frustrated, this is NOT a scam without a deceiving third party
-- Receiving money unexpectedly is only a scam if the post describes being asked to \
-send it back, being pressured, or being accused of fraud as part of a mule scheme \
-— not just "I got money from someone I don't know, is this a scam?" with nothing else
-Answer with exactly one word: YES or NO."""
+    prompt = f"""
+You are a fraud intelligence analyst.
+
+Analyse the following Reddit post and extracted evidence.
+
+Evidence:
+{combined_text[:3000]}
+
+Determine whether this is a genuine payment-related scam.
+
+Return ONLY valid JSON in this exact format:
+
+{{
+    "is_scam": true,
+    "confidence": 94,
+    "scam_type": "UPI Payment Scam",
+    "summary": "Brief explanation in 2-4 sentences."
+}}
+
+Rules:
+
+1. is_scam must be true or false.
+2. confidence must be an integer from 0 to 100.
+3. scam_type should be one short category such as:
+   - UPI Payment Scam
+   - QR Code Scam
+   - Fake Customer Care Scam
+   - Investment Scam
+   - Job Scam
+   - Crypto Scam
+   - Other
+4. summary should be concise.
+5. Return JSON only. No markdown. No extra text.
+"""
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
@@ -49,7 +52,7 @@ Answer with exactly one word: YES or NO."""
     payload = {
         "model": MODEL_NAME,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 5,
+        "max_tokens": 250,
         "temperature": 0
     }
     max_retries = 5 #retrying to load the posts in order to get the posts
@@ -64,10 +67,25 @@ Answer with exactly one word: YES or NO."""
                 continue
             resp.raise_for_status()
             data = resp.json()
-            answer = data["choices"][0]["message"]["content"].strip().upper()
-            return answer.startswith("YES")
+            content = data["choices"][0]["message"]["content"].strip()
+
+            try:
+                return json.loads(content)
+            except json.JSONDecodeError:
+                print("Invalid JSON returned by AI.")
+                return {
+                    "is_scam": False,
+                    "confidence": 0,
+                    "scam_type": "Unknown",
+                    "summary": "AI returned an invalid response."
+                    }
         except Exception as e:
             print(f"AI check error on attempt {attempt}: {e}")
             time.sleep(backoff * attempt)
     print("AI check failed after retries, defaulting to exclude.")
-    return False
+    return {
+        "is_scam" : False,
+        "confidence" : 0,
+        "scam_type" : "unknown",
+        "summary" : "AI request failed"
+    }
