@@ -48,7 +48,7 @@ for subreddit in subreddits:
 
     stop_at_fullname = last_seen.get(subreddit) 
     entries = fetch_reddit_rss_paginated(
-        subreddit, max_pages=1, per_page_count=25, stop_at_fullname=stop_at_fullname
+        subreddit, max_pages=8, per_page_count=25, stop_at_fullname=stop_at_fullname
     )
     print(f"Total NEW posts collected since last run: {len(entries)}")
 

@@ -1,31 +1,42 @@
 from openpyxl import Workbook
+
 def create_workbook():
     wb = Workbook()
+
+    # Main Report Sheet
     ws = wb.active
-    ws.title = "Reddit UPI Scam Data"
+    ws.title = "Scam Reports"
+
     ws.append([
+        "Date",
+        "Time",
         "Subreddit",
-        "Summary",
-        "Phone Numbers",
+        "Post ID",
+        "Title",
         "UPI IDs",
-        "Email",
-        "Link"
+        "Phone Numbers",
+        "Scam Type",
+        "AI Confidence",
+        "Evidence Folder",
+        "Reddit URL"
     ])
 
-
+    # Summary Sheet
     summary_ws = wb.create_sheet("Summary")
+
     summary_ws.append([
         "Subreddit",
-        "Total Posts Fetched",
-        "Rejected by Keyword Filter",
-        "Passed Keyword Filter",
-        "Rejected by AI",
-        "Passed AI Verification",
-        "Final Extracted"
+        "RSS Fetched",
+        "Failed Keyword",
+        "Passed Keyword",
+        "No Contact Info",
+        "Sent To AI",
+        "AI Rejected",
+        "Final Cases"
     ])
+
     return wb, ws, summary_ws
-
-
+  
 def write_post(ws, record):
     ws.append([
         record.subreddit,
