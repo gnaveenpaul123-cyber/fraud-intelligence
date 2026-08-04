@@ -10,7 +10,7 @@ from config.settings import (GROQ_API_KEY,
 GROQ_URL, 
 MODEL_NAME)
 def analyze_scam(combined_text):
-    """Ask the model whether evidence-bearing post describes any type of scam."""
+    """Ask the model whether a UPI-ID-bearing post describes a UPI scam."""
     prompt = f"""
 You are a fraud intelligence analyst.
 
@@ -19,8 +19,9 @@ Analyse the following Reddit post and extracted evidence.
 Evidence:
 {combined_text[:3000]}
 
-Determine whether this describes a genuine scam or fraud attempt. It may involve
-payments, cryptocurrency, jobs, investment, impersonation, loans, or another type.
+Determine whether this describes a genuine UPI payment scam. Confirm it only when
+the scam mechanism involves UPI (for example a fraudulent UPI ID, collect request,
+QR code, or UPI PIN) and the supplied evidence contains a UPI ID.
 
 Return ONLY valid JSON in this exact format:
 
@@ -35,14 +36,8 @@ Rules:
 
 1. is_scam must be true or false.
 2. confidence must be an integer from 0 to 100.
-3. scam_type should be one short category such as:
-   - UPI Payment Scam
-   - QR Code Scam
-   - Fake Customer Care Scam
-   - Investment Scam
-   - Job Scam
-   - Crypto Scam
-   - Other
+3. scam_type must be exactly "UPI Payment Scam" when is_scam is true, otherwise
+   use "Unknown".
 4. summary should be concise.
 5. Return JSON only. No markdown. No extra text.
 """
@@ -71,7 +66,11 @@ Rules:
             content = data["choices"][0]["message"]["content"].strip()
 
             try:
-                return json.loads(content)
+                result = json.loads(content)
+                # Keep every caller (dashboard and standalone script) on the
+                # single currently supported report category.
+                result["scam_type"] = "UPI Payment Scam" if result.get("is_scam") else "Unknown"
+                return result
             except json.JSONDecodeError:
                 print("Invalid JSON returned by AI.")
                 return {

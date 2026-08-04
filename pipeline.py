@@ -9,6 +9,7 @@ import time
 import calendar
 from datetime import datetime, timedelta, timezone
 from bs4 import BeautifulSoup
+from selenium.webdriver.support.ui import WebDriverWait
 from exports.excel_reporter import (
     create_workbook,
     write_post,
@@ -21,7 +22,7 @@ import shutil
 import tempfile
 from utils.storage import load_last_seen, save_last_seen
 
-from config.keywords import is_fraud_related_keyword
+from config.keywords import is_upi_related_keyword
 from extraction.entity_extractor import extract_entities
 from models.scam_record import ScamRecord
 from ai.ai_filter import analyze_scam
@@ -124,13 +125,9 @@ def run_pipeline(
         per_page_count = 25
         max_pages = math.ceil(posts_per_subreddit / 25)
 
+    # Start Chrome only after a UPI scam is confirmed.  Browser startup is costly
+    # and most scanned posts are rejected by the keyword/entity/AI filters.
     driver = None
-    try:
-        update_progress("Screenshot Capture", 1, message="Starting browser")
-        driver = get_driver()
-    except Exception:
-        metrics["errors"] += 1
-        logger.exception("Selenium browser could not be started; screenshots will be skipped.")
     try:
 
         wb, ws, summary_ws = create_workbook()
@@ -204,21 +201,21 @@ def run_pipeline(
                     summary = clean_reddit_text(summary)
                     text = (post.title + " " + summary).lower()
 
-                    if not is_fraud_related_keyword(text):
+                    if not is_upi_related_keyword(text):
                         metrics["keyword_filtered_out"] += 1
                         update_progress(
                             "Keyword Filter", progress_percent, subreddit=subreddit,
                             current_post=post_index, total_posts=total_fetched,
-                            message="Skipping post with no fraud indicators",
+                            message="Skipping post with no UPI scam indicators",
                         )
                         continue
 
                     passed_keyword += 1
                     metrics["keyword_matches"] += 1
 
-                # ----------------------------
+                
                 # Fetch full Reddit post
-                # ----------------------------
+                
                     post_data = fetch_reddit_post_data(post.link)
 
                     if post_data:
@@ -266,20 +263,12 @@ def run_pipeline(
 
                         update_progress("Entity Extraction", progress_percent, subreddit=subreddit, current_post=post_index, total_posts=total_fetched, message="Extracting contact information")
                         entities = extract_entities(combined_text)
-                        important_entities = (
-                            entities["upi_ids"]
-                            or entities["phones"]
-                            or entities["account_numbers"]
-                            or entities["wallet_addresses"]
-                            or entities["emails"]
-                            or entities["contact_handles"]
-                        )
-                        if not important_entities:
-                            logger.info("No UPI ID, phone number, or account number; skipping %s", post.link)
+                        if not entities["upi_ids"]:
+                            logger.info("No UPI ID found; skipping %s", post.link)
                             update_progress(
                                 "Entity Extraction", progress_percent, subreddit=subreddit,
                                 current_post=post_index, total_posts=total_fetched,
-                                message="Skipping post with no extractable contact information",
+                                message="Skipping post with no extractable UPI ID",
                             )
                             continue
 
@@ -292,21 +281,32 @@ def run_pipeline(
                         if not ai_result.get("is_scam"):
                             logger.info("AI classified post as not a scam: %s", post.link)
                             continue
+                        # Keep the report schema unchanged while guaranteeing that
+                        # every saved case has the single supported scam category.
+                        ai_result["scam_type"] = "UPI Payment Scam"
                         passed_ai += 1
                         metrics["ai_confirmed"] += 1
                         subreddit_metrics["ai_confirmed"] += 1
 
                         if not driver:
-                            metrics["errors"] += 1
-                            logger.warning("No browser available; refusing to save unscreened case: %s", post.link)
-                            continue
+                            try:
+                                update_progress("Screenshot Capture", progress_percent, subreddit=subreddit, current_post=post_index, total_posts=total_fetched, message="Starting browser for confirmed UPI scam")
+                                driver = get_driver()
+                            except Exception:
+                                metrics["errors"] += 1
+                                logger.exception("Selenium browser could not be started; refusing to save unscreened case: %s", post.link)
+                                continue
 
                         case_folder = None
                         case_folder_existed = False
                         try:
                             update_progress("Screenshot Capture", progress_percent, subreddit=subreddit, current_post=post_index, total_posts=total_fetched, message="Capturing browser evidence")
                             driver.get(post.link)
-                            time.sleep(5)
+                            # Wait only until Reddit has rendered instead of always
+                            # pausing five seconds for every confirmed case.
+                            WebDriverWait(driver, 10).until(
+                                lambda browser: browser.execute_script("return document.readyState") == "complete"
+                            )
                             save_screenshot(driver, work_folder)
                             case_folder = os.path.join("evidence", "reddit", post.id)
                             case_folder_existed = os.path.exists(case_folder)
@@ -350,7 +350,6 @@ def run_pipeline(
                         logger.info("Confirmed, screenshot-backed scam case: %s", post.link)
                         write_post(ws, record)
                         update_progress("Saving", progress_percent, subreddit=subreddit, current_post=post_index, total_posts=total_fetched, message="Saving investigation evidence")
-                        time.sleep(3)
                 except Exception:
                     metrics["errors"] += 1
                     logger.exception("Post processing failed for %s; continuing.", post.get("link", "unknown"))
