@@ -191,12 +191,14 @@ for subreddit in subreddits:
         # ----------------------------
         record = ScamRecord(
             subreddit=subreddit,
+            post_date="Unavailable",
             title=post.title,
             summary=summary,
             link=post.link,
             phones=entities["phones"],
             
             upi_ids=entities["upi_ids"],
+            account_numbers=entities["account_numbers"],
             emails=entities["emails"],
             urls=entities["urls"],
             confidence = confidence,

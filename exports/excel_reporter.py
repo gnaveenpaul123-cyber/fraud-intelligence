@@ -1,4 +1,15 @@
 from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill
+
+
+HEADER_FILL = PatternFill("solid", fgColor="1F4E78")
+
+
+def _style_header(worksheet):
+    for cell in worksheet[1]:
+        cell.font = Font(bold=True, color="FFFFFF")
+        cell.fill = HEADER_FILL
+    worksheet.freeze_panes = "A2"
 
 def create_workbook():
     wb = Workbook()
@@ -8,18 +19,19 @@ def create_workbook():
     ws.title = "Scam Reports"
 
     ws.append([
-        "Date",
-        "Time",
         "Subreddit",
-        "Post ID",
+        "Date of Post",
         "Title",
-        "UPI IDs",
+        "Summary",
         "Phone Numbers",
+        "UPI IDs",
+        "Account Numbers",
+        "Emails",
         "Scam Type",
         "AI Confidence",
-        "Evidence Folder",
         "Reddit URL"
     ])
+    _style_header(ws)
 
     # Summary Sheet
     summary_ws = wb.create_sheet("Summary")
@@ -34,16 +46,22 @@ def create_workbook():
         "AI Rejected",
         "Final Cases"
     ])
+    _style_header(summary_ws)
 
     return wb, ws, summary_ws
   
 def write_post(ws, record):
     ws.append([
         record.subreddit,
+        record.post_date,
+        record.title,
         record.summary[:500],
         ", ".join(record.phones),
         ", ".join(record.upi_ids),
+        ", ".join(record.account_numbers),
         ", ".join(record.emails),
+        record.scam_type,
+        record.confidence,
         record.link
     ])   
 
@@ -52,16 +70,18 @@ def write_summary(
     subreddit,
     total_fetched,
     passed_keyword,
+    sent_to_ai,
     passed_ai,
-    final_with_contact_info
+    final_with_contact_info,
 ):
     summary_ws.append([
         subreddit,
         total_fetched,
         total_fetched - passed_keyword,
         passed_keyword,
-        passed_keyword - passed_ai,
-        passed_ai,
+        passed_keyword - sent_to_ai,
+        sent_to_ai,
+        sent_to_ai - passed_ai,
         final_with_contact_info
     ])
 

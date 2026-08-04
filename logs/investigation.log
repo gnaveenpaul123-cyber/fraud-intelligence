@@ -1,0 +1,76 @@
+2026-08-04 13:31:48,141 | INFO | pipeline | Pipeline started for 1 subreddit(s)
+2026-08-04 13:31:58,017 | INFO | pipeline | Checking r/scams
+2026-08-04 13:32:06,816 | INFO | pipeline | Pipeline completed in 18.7s
+2026-08-04 13:46:07,522 | INFO | pipeline | Pipeline started for 1 subreddit(s)
+2026-08-04 13:46:18,048 | INFO | pipeline | Checking r/IsThisAScamIndia
+2026-08-04 13:49:42,411 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1uv1jf2/risthisascamindia_now_has_an_official_discord/
+2026-08-04 13:49:43,918 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1vd7sy8/anyone_else_gotten_scammed_by_the_musk_clothing/
+2026-08-04 13:49:46,732 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1vcmpo0/fake_hotel_booking_via_google_maps/
+2026-08-04 13:49:47,524 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1vaxvwn/meesho_cod_scam_stay_safe/
+2026-08-04 13:49:50,465 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1v94noh/instagram_phone_case_seller_scam/
+2026-08-04 13:49:51,266 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1v71w6m/instagram_alt_account_scammer_completely_my_fault/
+2026-08-04 13:49:54,918 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1v5c2mc/exposed_the_scam_exposer_uwest_poetry_7183_is/
+2026-08-04 13:49:55,565 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1v53wdy/phone_bombed_with_otp_and_money_deducted_from/
+2026-08-04 13:50:02,931 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1v3dxc6/any_way_to_catch_a_scammer_though_upi_id/
+2026-08-04 13:51:26,138 | INFO | pipeline | Confirmed scam case: https://www.reddit.com/r/IsThisAScamIndia/comments/1v0vr5k/title_paid_1500_via_upi_seller_deleted_reddit/
+2026-08-04 13:51:29,933 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1uxztop/possible_upi_scam_need_advice/
+2026-08-04 13:51:30,579 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1uy1zma/scammer_has_access_to_phone_number_and_recent/
+2026-08-04 13:51:31,463 | INFO | pipeline | No important entities found; skipping AI for https://www.reddit.com/r/IsThisAScamIndia/comments/1uxb8is/need_advice/
+2026-08-04 13:51:31,832 | INFO | pipeline | Pipeline completed in 324.3s
+2026-08-04 14:12:15,370 | INFO | pipeline | Pipeline started for 1 subreddit(s)
+2026-08-04 14:12:27,455 | INFO | pipeline | Checking r/IsThisAScamIndia
+2026-08-04 14:14:57,012 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uv1jf2/risthisascamindia_now_has_an_official_discord/
+2026-08-04 14:14:58,339 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vd7sy8/anyone_else_gotten_scammed_by_the_musk_clothing/
+2026-08-04 14:15:01,579 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vcmpo0/fake_hotel_booking_via_google_maps/
+2026-08-04 14:15:02,501 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vaxvwn/meesho_cod_scam_stay_safe/
+2026-08-04 14:15:06,463 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v94noh/instagram_phone_case_seller_scam/
+2026-08-04 14:15:07,795 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v71w6m/instagram_alt_account_scammer_completely_my_fault/
+2026-08-04 14:15:11,827 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v5c2mc/exposed_the_scam_exposer_uwest_poetry_7183_is/
+2026-08-04 14:15:12,416 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v53wdy/phone_bombed_with_otp_and_money_deducted_from/
+2026-08-04 14:15:19,622 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v3dxc6/any_way_to_catch_a_scammer_though_upi_id/
+2026-08-04 14:15:20,053 | INFO | pipeline | Pipeline completed in 184.7s
+2026-08-04 15:32:27,898 | INFO | pipeline | Pipeline started for 1 subreddit(s)
+2026-08-04 15:32:48,734 | INFO | pipeline | Checking r/IsThisAScamIndia
+2026-08-04 15:33:02,630 | INFO | pipeline | Pipeline completed in 34.7s
+2026-08-04 15:36:36,486 | INFO | pipeline | Pipeline started for 1 subreddit(s)
+2026-08-04 15:36:47,728 | INFO | pipeline | Checking r/IsThisAScamIndia
+2026-08-04 15:39:56,720 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uv1jf2/risthisascamindia_now_has_an_official_discord/
+2026-08-04 15:39:58,086 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vd7sy8/anyone_else_gotten_scammed_by_the_musk_clothing/
+2026-08-04 15:40:02,034 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vcmpo0/fake_hotel_booking_via_google_maps/
+2026-08-04 15:40:02,849 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vaxvwn/meesho_cod_scam_stay_safe/
+2026-08-04 15:40:06,158 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v94noh/instagram_phone_case_seller_scam/
+2026-08-04 15:40:06,952 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v71w6m/instagram_alt_account_scammer_completely_my_fault/
+2026-08-04 15:40:09,567 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v5c2mc/exposed_the_scam_exposer_uwest_poetry_7183_is/
+2026-08-04 15:40:10,296 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v53wdy/phone_bombed_with_otp_and_money_deducted_from/
+2026-08-04 15:40:17,353 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v3dxc6/any_way_to_catch_a_scammer_though_upi_id/
+2026-08-04 15:42:08,009 | INFO | pipeline | Confirmed, screenshot-backed scam case: https://www.reddit.com/r/IsThisAScamIndia/comments/1v0vr5k/title_paid_1500_via_upi_seller_deleted_reddit/
+2026-08-04 15:42:14,918 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uxztop/possible_upi_scam_need_advice/
+2026-08-04 15:42:15,732 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uy1zma/scammer_has_access_to_phone_number_and_recent/
+2026-08-04 15:42:17,090 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uxb8is/need_advice/
+2026-08-04 15:42:19,714 | INFO | pipeline | Pipeline completed in 343.2s
+2026-08-04 17:24:55,952 | INFO | pipeline | Pipeline started for 1 subreddit(s)
+2026-08-04 17:25:15,472 | INFO | pipeline | Checking r/IsThisAScamIndia
+2026-08-04 17:30:00,314 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uv1jf2/risthisascamindia_now_has_an_official_discord/
+2026-08-04 17:30:01,547 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vd7sy8/anyone_else_gotten_scammed_by_the_musk_clothing/
+2026-08-04 17:30:06,697 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vcmpo0/fake_hotel_booking_via_google_maps/
+2026-08-04 17:30:07,475 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1vaxvwn/meesho_cod_scam_stay_safe/
+2026-08-04 17:30:10,853 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v94noh/instagram_phone_case_seller_scam/
+2026-08-04 17:30:11,847 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v71w6m/instagram_alt_account_scammer_completely_my_fault/
+2026-08-04 17:30:16,363 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v5c2mc/exposed_the_scam_exposer_uwest_poetry_7183_is/
+2026-08-04 17:30:16,984 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v53wdy/phone_bombed_with_otp_and_money_deducted_from/
+2026-08-04 17:30:26,982 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1v3dxc6/any_way_to_catch_a_scammer_though_upi_id/
+2026-08-04 17:32:02,091 | INFO | pipeline | Confirmed, screenshot-backed scam case: https://www.reddit.com/r/IsThisAScamIndia/comments/1v0vr5k/title_paid_1500_via_upi_seller_deleted_reddit/
+2026-08-04 17:32:08,498 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uxztop/possible_upi_scam_need_advice/
+2026-08-04 17:32:09,525 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uy1zma/scammer_has_access_to_phone_number_and_recent/
+2026-08-04 17:32:11,215 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uxb8is/need_advice/
+2026-08-04 17:32:24,941 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uvgqf1/scam_using_my_meesho_order_details_please_stay/
+2026-08-04 17:33:00,944 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uu8a7k/i_analyzed_a_fake_mparivahan_echallan_apk_it/
+2026-08-04 17:33:02,710 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1utmz8c/mnc_job_scam_firstaimin_website/
+2026-08-04 17:35:12,670 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1uu1598/is_pop_upi_store_legit/
+2026-08-04 17:35:14,634 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1utwj9a/got_scammed_by_pop_upi_poptech_growth_pvt_ltd/
+2026-08-04 17:35:42,271 | INFO | pipeline | Confirmed, screenshot-backed scam case: https://www.reddit.com/r/IsThisAScamIndia/comments/1ute5iw/upi_scam_while_booking_hotel/
+2026-08-04 17:35:48,305 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1ut2ga9/why_do_i_keep_receiving_money_from_idk_who/
+2026-08-04 17:37:10,055 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1usdimo/received_6000_from_a_random_person_via_upi_not/
+2026-08-04 17:37:34,076 | INFO | pipeline | Confirmed, screenshot-backed scam case: https://www.reddit.com/r/IsThisAScamIndia/comments/1urw06f/instagram_fake_profile_gpay_upi_scam/
+2026-08-04 17:37:40,872 | INFO | pipeline | No UPI ID, phone number, or account number; skipping https://www.reddit.com/r/IsThisAScamIndia/comments/1urlgmf/please_help_me_with_this/
+2026-08-04 17:37:43,328 | INFO | pipeline | Pipeline completed in 767.4s
