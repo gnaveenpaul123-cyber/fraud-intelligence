@@ -11,6 +11,8 @@ class ScamRecord:
     upi_ids : list[str]
     account_numbers : list[str]
     emails : list[str]
+    wallet_addresses: list[str]
+    contact_handles: list[str]
     urls: list[str]
     confidence : int
     scam_type : str
@@ -26,6 +28,8 @@ class ScamRecord:
             "upi_ids": self.upi_ids,
             "account_numbers": self.account_numbers,
             "emails": self.emails,
+            "wallet_addresses": self.wallet_addresses,
+            "contact_handles": self.contact_handles,
             "urls": self.urls,
             "confidence" : self.confidence,
             "scam_type" : self.scam_type,

@@ -21,7 +21,7 @@ import shutil
 import tempfile
 from utils.storage import load_last_seen, save_last_seen
 
-from config.keywords import is_upi_related_keyword
+from config.keywords import is_fraud_related_keyword
 from extraction.entity_extractor import extract_entities
 from models.scam_record import ScamRecord
 from ai.ai_filter import analyze_scam
@@ -90,10 +90,21 @@ def run_pipeline(
     metrics = {
         "posts_scanned": 0,
         "keyword_matches": 0,
+        "keyword_filtered_out": 0,
+        "contact_info_found": 0,
+        "sent_to_ai": 0,
         "ai_confirmed": 0,
         "contact_information": 0,
         "screenshots_captured": 0,
         "errors": 0,
+        "subreddit_stats": {
+            subreddit: {
+                "posts_scanned": 0,
+                "important_info_found": 0,
+                "ai_confirmed": 0,
+            }
+            for subreddit in subreddits
+        },
     }
     started_at = time.monotonic()
 
@@ -131,6 +142,7 @@ def run_pipeline(
         results = []
 
         for subreddit_index, subreddit in enumerate(subreddits, start=1):
+            subreddit_metrics = metrics["subreddit_stats"][subreddit]
 
             update_progress(
                 "RSS Collection", 5,
@@ -174,6 +186,7 @@ def run_pipeline(
                     continue
                 seen_links.add(post.link)
                 metrics["posts_scanned"] += 1
+                subreddit_metrics["posts_scanned"] += 1
                 progress_percent = min(
                     90,
                     10 + int(80 * metrics["posts_scanned"] / max(total_requested, 1)),
@@ -191,7 +204,13 @@ def run_pipeline(
                     summary = clean_reddit_text(summary)
                     text = (post.title + " " + summary).lower()
 
-                    if not is_upi_related_keyword(text):
+                    if not is_fraud_related_keyword(text):
+                        metrics["keyword_filtered_out"] += 1
+                        update_progress(
+                            "Keyword Filter", progress_percent, subreddit=subreddit,
+                            current_post=post_index, total_posts=total_fetched,
+                            message="Skipping post with no fraud indicators",
+                        )
                         continue
 
                     passed_keyword += 1
@@ -251,12 +270,23 @@ def run_pipeline(
                             entities["upi_ids"]
                             or entities["phones"]
                             or entities["account_numbers"]
+                            or entities["wallet_addresses"]
+                            or entities["emails"]
+                            or entities["contact_handles"]
                         )
                         if not important_entities:
                             logger.info("No UPI ID, phone number, or account number; skipping %s", post.link)
+                            update_progress(
+                                "Entity Extraction", progress_percent, subreddit=subreddit,
+                                current_post=post_index, total_posts=total_fetched,
+                                message="Skipping post with no extractable contact information",
+                            )
                             continue
 
+                        subreddit_metrics["important_info_found"] += 1
                         sent_to_ai += 1
+                        metrics["contact_info_found"] += 1
+                        metrics["sent_to_ai"] += 1
                         update_progress("AI Analysis", progress_percent, subreddit=subreddit, current_post=post_index, total_posts=total_fetched, message="Classifying potential scam")
                         ai_result = analyze_scam(combined_text)
                         if not ai_result.get("is_scam"):
@@ -264,6 +294,7 @@ def run_pipeline(
                             continue
                         passed_ai += 1
                         metrics["ai_confirmed"] += 1
+                        subreddit_metrics["ai_confirmed"] += 1
 
                         if not driver:
                             metrics["errors"] += 1
@@ -299,6 +330,8 @@ def run_pipeline(
                             upi_ids=entities["upi_ids"],
                             account_numbers=entities["account_numbers"],
                             emails=entities["emails"],
+                            wallet_addresses=entities["wallet_addresses"],
+                            contact_handles=entities["contact_handles"],
                             urls=entities["urls"],
                             confidence=ai_result.get("confidence", 0),
                             scam_type=ai_result.get("scam_type", "Unknown"),

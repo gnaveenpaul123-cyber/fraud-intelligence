@@ -200,6 +200,8 @@ for subreddit in subreddits:
             upi_ids=entities["upi_ids"],
             account_numbers=entities["account_numbers"],
             emails=entities["emails"],
+            wallet_addresses=entities["wallet_addresses"],
+            contact_handles=entities["contact_handles"],
             urls=entities["urls"],
             confidence = confidence,
             scam_type = scam_type,

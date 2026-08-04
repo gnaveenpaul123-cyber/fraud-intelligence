@@ -7,7 +7,7 @@ from worker import start_worker
 
 
 st.set_page_config(
-    page_title="Fraud Intelligence Dashboard",
+    page_title="reddit-fraudtraceai",
     page_icon="🛡️",
     layout="wide",
 )
@@ -17,9 +17,32 @@ st.markdown(
     <style>
     [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] { display: none; }
     .main .block-container { max-width: 1200px; padding-top: 2.5rem; }
-    .task-complete { color: #16803c; font-weight: 600; }
-    .task-active { color: #0f5fa7; font-weight: 600; }
-    .task-pending { color: #7a7a7a; }
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .task-card {
+      min-height: 5.5rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid #d9e2ec;
+      border-radius: 0.6rem;
+      background: #ffffff;
+    }
+    .task-card strong { display: block; margin-bottom: 0.4rem; }
+    .task-complete { border-color: #86d5a4; background: #f0fdf4; }
+    .task-complete .task-state { color: #16803c; font-weight: 600; }
+    .task-active { border-color: #8dbce8; background: #eff6ff; }
+    .task-active .task-state { color: #0f5fa7; font-weight: 600; }
+    .task-pending { color: #687386; }
+    .loader { display: inline-block; width: 0.8rem; height: 0.8rem; margin-right: 0.35rem;
+      border: 2px solid #a9cce8; border-top-color: #0f5fa7; border-radius: 50%;
+      vertical-align: -0.1rem; animation: fraudtrace-spin 0.75s linear infinite; }
+    @keyframes fraudtrace-spin { to { transform: rotate(360deg); } }
+    @media (max-width: 800px) {
+      .task-grid { grid-template-columns: 1fr; }
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -27,6 +50,7 @@ st.markdown(
 
 TASKS = [
     "RSS Collection",
+    "Keyword Filter",
     "Image Download",
     "OCR Extraction",
     "Entity Extraction",
@@ -57,8 +81,42 @@ def format_duration(seconds):
 
 
 def render_kpis(metrics):
-    # Posts scanned is the single KPI reliably available throughout the run.
-    st.metric("Posts Scanned", metrics.get("posts_scanned", 0))
+    scanned = metrics.get("posts_scanned", 0)
+    useful = metrics.get("contact_information", 0)
+    cards = st.columns(5)
+    cards[0].metric("Posts Scanned", scanned)
+    cards[1].metric("Filtered by Keywords", metrics.get("keyword_filtered_out", 0))
+    cards[2].metric("Passed Keyword Screen", metrics.get("keyword_matches", 0))
+    cards[3].metric("Contact Info Extracted", metrics.get("contact_info_found", 0))
+    cards[4].metric("AI Confirmed", useful)
+
+
+def render_subreddit_chart(metrics):
+    """Show pipeline counts per subreddit with subreddits on the x-axis."""
+    subreddit_stats = metrics.get("subreddit_stats", {})
+    chart_data = [
+        {
+            "Subreddit": f"r/{subreddit}",
+            "Posts with important information": counts.get("important_info_found", 0),
+            "AI-confirmed posts": counts.get("ai_confirmed", 0),
+        }
+        for subreddit, counts in subreddit_stats.items()
+    ]
+
+    st.subheader("AI filter results by subreddit")
+    st.caption("Posts with important information are sent to AI. Important information includes UPI IDs, phone numbers, account numbers, wallets, emails, and contact handles.")
+    if not chart_data:
+        st.info("No subreddit data is available for this investigation.")
+        return
+
+    st.bar_chart(
+        chart_data,
+        x="Subreddit",
+        y=["Posts with important information", "AI-confirmed posts"],
+        x_label="Subreddit",
+        y_label="Number of posts",
+        color=["#2563eb", "#16a34a"],
+    )
 
 
 def start_new_investigation():
@@ -73,7 +131,7 @@ def start_new_investigation():
 initialise_session_state()
 
 if st.session_state.screen == "setup":
-    st.title("fraudtraceAI")
+    st.title("reddit-fraudtraceai")
     st.caption("Investigate scam reports on Reddit. Configure an investigation to begin.")
     render_kpis(st.session_state.run_metrics)
 
@@ -116,7 +174,8 @@ if st.session_state.screen == "setup":
         st.caption("Version 1.0")
 
 elif st.session_state.screen == "progress":
-    st.title("Investigation Running")
+    st.title("reddit-fraudtraceai")
+    st.subheader("Investigation running")
     st.caption("Live status updates are shown as each post moves through the pipeline.")
 
     kpi_placeholder = st.empty()
@@ -128,28 +187,43 @@ elif st.session_state.screen == "progress":
     task_placeholder = st.empty()
     latest_metrics = {}
     completed_tasks = set()
+    active_task = [None]
 
     def render_tasks(active_stage=None):
         task_lines = []
         for task in TASKS:
             if task in completed_tasks:
-                task_lines.append(f'<p class="task-complete">✓ {task}</p>')
+                task_lines.append(
+                    f'<div class="task-card task-complete"><strong>{task}</strong>'
+                    '<span class="task-state">✓ Complete</span></div>'
+                )
             elif task == active_stage:
-                task_lines.append(f'<p class="task-active">⏳ {task}</p>')
+                task_lines.append(
+                    f'<div class="task-card task-active"><strong>{task}</strong>'
+                    '<span class="task-state"><span class="loader"></span>In progress</span></div>'
+                )
             else:
-                task_lines.append(f'<p class="task-pending">○ {task}</p>')
-        task_placeholder.markdown("".join(task_lines), unsafe_allow_html=True)
+                task_lines.append(
+                    f'<div class="task-card task-pending"><strong>{task}</strong>'
+                    '<span class="task-state">○ Waiting</span></div>'
+                )
+        task_placeholder.markdown(
+            f'<div class="task-grid">{"".join(task_lines)}</div>',
+            unsafe_allow_html=True,
+        )
 
     def progress_callback(stage, percent, details=None):
         details = details or {}
         latest_metrics.clear()
         latest_metrics.update(details)
-        active_stage = None if stage == "Complete" else stage
-        if active_stage:
-            completed_tasks.update(TASKS[:TASKS.index(active_stage)])
-        elif stage == "Complete":
+        if stage == "Complete":
             completed_tasks.update(TASKS)
-        render_tasks(active_stage)
+            active_task[0] = None
+        elif stage in TASKS:
+            if active_task[0] and active_task[0] != stage:
+                completed_tasks.add(active_task[0])
+            active_task[0] = stage
+        render_tasks(active_task[0])
         progress_bar.progress(percent, text=details.get("message", stage))
         with kpi_placeholder.container():
             render_kpis(details)
@@ -188,9 +262,13 @@ elif st.session_state.screen == "progress":
 
 elif st.session_state.screen == "results":
     metrics = st.session_state.run_metrics
-    st.title("Investigation Results")
+    st.title("reddit-fraudtraceai")
+    st.subheader("Investigation results")
     st.caption(f"Completed in {format_duration(st.session_state.run_duration)}")
     records = st.session_state.run_records
+    render_kpis(metrics)
+    render_subreddit_chart(metrics)
+    st.divider()
     if records:
         st.subheader("Confirmed scam reports")
         header = st.columns([1.1, 1.5, 1.5, 1.5, 1.2, 0.8])
@@ -233,6 +311,18 @@ elif st.session_state.screen == "details":
     st.markdown(f"**Scam type:** {record.get('scam_type', 'Unknown')}")
     st.markdown(f"**AI confidence:** {record.get('confidence', 0)}%")
     st.markdown(f"**Source link:** {record.get('link', '')}")
+    st.subheader("Extracted information")
+    evidence = {
+        "UPI IDs": record.get("upi_ids", []),
+        "Phone numbers": record.get("phones", []),
+        "Account numbers": record.get("account_numbers", []),
+        "Crypto wallet addresses": record.get("wallet_addresses", []),
+        "Email addresses": record.get("emails", []),
+        "Telegram / WhatsApp contacts": record.get("contact_handles", []),
+    }
+    for label, values in evidence.items():
+        if values:
+            st.markdown(f"**{label}:** {', '.join(values)}")
     if record.get("ai_summary"):
         st.markdown(f"**AI summary:** {record['ai_summary']}")
     st.button("Back to results", on_click=lambda: st.session_state.update(screen="results"))

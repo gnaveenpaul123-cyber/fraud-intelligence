@@ -10,7 +10,7 @@ from config.settings import (GROQ_API_KEY,
 GROQ_URL, 
 MODEL_NAME)
 def analyze_scam(combined_text):
-    """Stage 2: ask the model (via Groq) whether this is an actual UPI payment scam."""
+    """Ask the model whether evidence-bearing post describes any type of scam."""
     prompt = f"""
 You are a fraud intelligence analyst.
 
@@ -19,7 +19,8 @@ Analyse the following Reddit post and extracted evidence.
 Evidence:
 {combined_text[:3000]}
 
-Determine whether this is a genuine payment-related scam.
+Determine whether this describes a genuine scam or fraud attempt. It may involve
+payments, cryptocurrency, jobs, investment, impersonation, loans, or another type.
 
 Return ONLY valid JSON in this exact format:
 
