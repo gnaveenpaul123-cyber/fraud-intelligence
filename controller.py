@@ -2,16 +2,19 @@ from pipeline import run_pipeline
 
 
 def start_investigation(
-    subreddit_list,
+    subreddits,
     posts,
-    time_range
+    time_range,
+    progress_callback=None
 ):
+    print("controller started")
     """
     Starts the investigation by calling the pipeline.
     """
 
     return run_pipeline(
-        subreddits=subreddit_list,
+        subreddits=subreddits,
         posts_per_subreddit=posts,
-        time_filter=time_range
+        time_filter=time_range,
+        progress_callback=progress_callback
     )

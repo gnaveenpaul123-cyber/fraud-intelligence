@@ -1,0 +1,1507 @@
+[1785604216.170][INFO]: Starting ChromeDriver 151.0.7922.71 (ef35003457e93c278f911a334b06e4a5f8967e06-refs/branch-heads/7922_47@{#11}) on port 44775
+[1785604216.171][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1785604216.270][INFO]: ChromeDriver was started successfully on port 44775
+[1785604216.357][INFO]: [5b6be7c95ad6266b0460a1704488533c] COMMAND InitSession {
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "browserVersion": null,
+         "goog:chromeOptions": {
+            "args": [ "--user-data-dir=/home/gnaveenpaul123/.config/fraud_profile", "--profile-directory=Default", "--start-maximized" ],
+            "binary": "/usr/bin/chromium",
+            "extensions": [  ]
+         },
+         "pageLoadStrategy": "normal"
+      },
+      "firstMatch": [ {
+      } ]
+   }
+}
+[1785604216.391][INFO]: Populating Preferences file: {
+   "accessibility": {
+      "captions": {
+         "headless_caption_enabled": false
+      }
+   },
+   "account_tracker_service_last_update": "13430077414200437",
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "announcement_notification_service_first_run_time": "13430077408270636",
+   "apps": {
+      "shortcuts_arch": "",
+      "shortcuts_version": 0
+   },
+   "autocomplete": {
+      "retention_policy_last_version": 151
+   },
+   "autofill": {
+      "ai_last_version_deduped": 151,
+      "autofill_ai": {
+         "opt_in_status": {
+         }
+      },
+      "credit_card_enabled": false,
+      "last_version_deduped": 151,
+      "profile_enabled": false
+   },
+   "bookmark": {
+      "storage_computation_last_update": "13430077409036258"
+   },
+   "bookmark_bar": {
+      "show_on_all_tabs": true
+   },
+   "browser": {
+      "check_default_browser": false,
+      "has_seen_welcome_page": true,
+      "show_home_button": true,
+      "window_placement": {
+         "bottom": 765,
+         "left": 0,
+         "maximized": false,
+         "right": 1050,
+         "top": 0,
+         "work_area_bottom": 785,
+         "work_area_left": 0,
+         "work_area_right": 1396,
+         "work_area_top": 0
+      }
+   },
+   "commerce_daily_metrics_last_update_time": "13430077409883528",
+   "credentials_enable_autosignin": false,
+   "credentials_enable_service": false,
+   "default_apps": "noinstall",
+   "default_apps_install_state": 2,
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "domain_diversity": {
+      "last_reporting_timestamp": "13430077411630164",
+      "last_reporting_timestamp_v4": "13430077411630215"
+   },
+   "dual_layer_user_pref_store": {
+      "user_selected_sync_types": [  ]
+   },
+   "enterprise_profile_guid": "589543de-d588-48ce-a10a-208bbdb26acc",
+   "extensions": {
+      "alerts": {
+         "initialized": true
+      },
+      "chrome_url_overrides": {
+      },
+      "install": {
+         "initiallist": [  ],
+         "initialprovidername": ""
+      },
+      "last_chrome_version": "151.0.7922.71",
+      "settings": {
+         "mhjfbmdgcfjbbpaeojofohoefgiehjai": {
+            "account_extension_type": 0,
+            "active_permissions": {
+               "api": [ "contentSettings", "fileSystem", "fileSystem.write", "metricsPrivate", "tabs", "resourcesPrivate", "pdfViewerPrivate" ],
+               "explicit_host": [ "chrome://resources/*", "chrome://webui-test/*" ],
+               "manifest_permissions": [  ],
+               "scriptable_host": [  ]
+            },
+            "commands": {
+            },
+            "content_settings": [  ],
+            "creation_flags": 1,
+            "disable_reasons": [  ],
+            "events": [  ],
+            "first_install_time": "13430077408678519",
+            "from_webstore": false,
+            "incognito_content_settings": [  ],
+            "incognito_preferences": {
+            },
+            "last_loaded_browser_version": "151.0.7922.71",
+            "last_update_time": "13430077408678519",
+            "location": 5,
+            "manifest": {
+               "content_security_policy": "script-src 'self' blob: filesystem: chrome://resources chrome://webui-test; object-src * blob: externalfile: file: filesystem: data:",
+               "description": "",
+               "incognito": "split",
+               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDN6hM0rsDYGbzQPQfOygqlRtQgKUXMfnSjhIBL7LnReAVBEd7ZmKtyN2qmSasMl4HZpMhVe2rPWVVwBDl6iyNE/Kok6E6v6V3vCLGsOpQAuuNVye/3QxzIldzG/jQAdWZiyXReRVapOhZtLjGfywCvlWq7Sl/e3sbc0vWybSDI2QIDAQAB",
+               "manifest_version": 2,
+               "mime_types": [ "application/pdf" ],
+               "mime_types_handler": "index.html",
+               "name": "Chromium PDF Viewer",
+               "offline_enabled": true,
+               "permissions": [ "chrome://resources/", "chrome://webui-test/", "contentSettings", "metricsPrivate", "pdfViewerPrivate", "resourcesPrivate", "tabs", {
+                  "fileSystem": [ "write" ]
+               } ],
+               "version": "1",
+               "web_accessible_resources": [ "pdf_embedder.css" ]
+            },
+            "path": "/usr/lib/chromium/resources/pdf",
+            "preferences": {
+            },
+            "regular_only_preferences": {
+            },
+            "was_installed_by_default": false,
+            "was_installed_by_oem": false
+         }
+      }
+   },
+   "gaia_cookie": {
+      "changed_time": 1785603814.762896,
+      "hash": "2jmj7l5rSw0yVb/vlWAYkK/YBwk=",
+      "last_list_accounts_binary_data": "",
+      "periodic_report_time_2": "13430077408027480"
+   },
+   "gcm": {
+      "product_category_for_subtypes": "org.chromium.linux"
+   },
+   "google": {
+      "services": {
+         "signin_scoped_device_id": "2cf0013e-bb0a-4ec1-86ab-cfae7ba3ee21"
+      }
+   },
+   "hide_web_store_icon": true,
+   "homepage": "https://www.debian.org",
+   "homepage_is_newtabpage": true,
+   "import_bookmarks": false,
+   "in_product_help": {
+      "new_badge": {
+         "Compose": {
+            "feature_enabled_time": "13430077408712318",
+            "show_count": 0,
+            "used_count": 0
+         },
+         "ComposeNudge": {
+            "feature_enabled_time": "13430077408712365",
+            "show_count": 0,
+            "used_count": 0
+         },
+         "ComposeProactiveNudge": {
+            "feature_enabled_time": "13430077408712376",
+            "show_count": 0,
+            "used_count": 0
+         },
+         "GlicAppMenuNewBadge": {
+            "feature_enabled_time": "13430077408712410",
+            "show_count": 0,
+            "used_count": 0
+         },
+         "GlicKeyboardShortcutNewBadge": {
+            "feature_enabled_time": "13430077408712396",
+            "show_count": 0,
+            "used_count": 0
+         },
+         "LensOverlay": {
+            "feature_enabled_time": "13430077408712428",
+            "show_count": 0,
+            "used_count": 0
+         }
+      },
+      "recent_session_enabled_time": "13430077408715318",
+      "recent_session_start_times": [ "13430077408715318" ],
+      "session_last_active_time": "13430077408715318",
+      "session_number": 2,
+      "session_start_time": "13430077408715318"
+   },
+   "intl": {
+      "selected_languages": "en-US,en"
+   },
+   "invalidation": {
+      "per_sender_registered_for_invalidation": {
+         "1013309121859": {
+         },
+         "947318989803": {
+         }
+      }
+   },
+   "management": {
+      "profile": {
+         "last_log_time": "13430077408019136"
+      }
+   },
+   "media": {
+      "engagement": {
+         "schema_version": 5
+      }
+   },
+   "media_router": {
+      "receiver_id_hash_token": "R4CfwpnXLZ4pCLD5HeJSLFBMEMbfXR4WdeZGqwoJG+/o7jPeusl7/rtjtFkSUggF3pI5aYDOhTTa1nLyGK6dlw=="
+   },
+   "net": {
+      "network_prediction_options": 2
+   },
+   "ntp": {
+      "num_personal_suggestions": 0
+   },
+   "optimization_guide": {
+      "hintsfetcher": {
+         "hosts_successfully_fetched": {
+         }
+      },
+      "previous_optimization_types_with_filter": {
+         "A2A_MERCHANT_ALLOWLIST": true,
+         "AMERICAN_EXPRESS_CREDIT_CARD_FLIGHT_BENEFITS": true,
+         "AMERICAN_EXPRESS_CREDIT_CARD_SUBSCRIPTION_BENEFITS": true,
+         "AUTOFILL_ABLATION_SITES_LIST1": true,
+         "AUTOFILL_ABLATION_SITES_LIST2": true,
+         "AUTOFILL_ABLATION_SITES_LIST3": true,
+         "AUTOFILL_ABLATION_SITES_LIST4": true,
+         "AUTOFILL_ABLATION_SITES_LIST5": true,
+         "AUTOFILL_ACTOR_IFRAME_ORIGIN_ALLOWLIST": true,
+         "BMO_CREDIT_CARD_AIR_MILES_PARTNER_BENEFITS": true,
+         "BMO_CREDIT_CARD_ALCOHOL_STORE_BENEFITS": true,
+         "BMO_CREDIT_CARD_DINING_BENEFITS": true,
+         "BMO_CREDIT_CARD_DRUGSTORE_BENEFITS": true,
+         "BMO_CREDIT_CARD_ENTERTAINMENT_BENEFITS": true,
+         "BMO_CREDIT_CARD_GROCERY_BENEFITS": true,
+         "BMO_CREDIT_CARD_OFFICE_SUPPLY_BENEFITS": true,
+         "BMO_CREDIT_CARD_RECURRING_BILL_BENEFITS": true,
+         "BMO_CREDIT_CARD_TRANSIT_BENEFITS": true,
+         "BMO_CREDIT_CARD_TRAVEL_BENEFITS": true,
+         "BMO_CREDIT_CARD_WHOLESALE_CLUB_BENEFITS": true,
+         "BUY_NOW_PAY_LATER_ALLOWLIST_AFFIRM": true,
+         "BUY_NOW_PAY_LATER_ALLOWLIST_AFFIRM_ANDROID": true,
+         "BUY_NOW_PAY_LATER_ALLOWLIST_KLARNA": true,
+         "BUY_NOW_PAY_LATER_ALLOWLIST_KLARNA_ANDROID": true,
+         "BUY_NOW_PAY_LATER_ALLOWLIST_ZIP": true,
+         "BUY_NOW_PAY_LATER_ALLOWLIST_ZIP_ANDROID": true,
+         "BUY_NOW_PAY_LATER_BLOCKLIST_AFFIRM": true,
+         "BUY_NOW_PAY_LATER_BLOCKLIST_AFFIRM_ANDROID": true,
+         "BUY_NOW_PAY_LATER_BLOCKLIST_KLARNA": true,
+         "BUY_NOW_PAY_LATER_BLOCKLIST_KLARNA_ANDROID": true,
+         "BUY_NOW_PAY_LATER_BLOCKLIST_ZIP": true,
+         "BUY_NOW_PAY_LATER_BLOCKLIST_ZIP_ANDROID": true,
+         "CAPITAL_ONE_CREDIT_CARD_BENEFITS_BLOCKED": true,
+         "CAPITAL_ONE_CREDIT_CARD_DINING_BENEFITS": true,
+         "CAPITAL_ONE_CREDIT_CARD_ENTERTAINMENT_BENEFITS": true,
+         "CAPITAL_ONE_CREDIT_CARD_GROCERY_BENEFITS": true,
+         "CAPITAL_ONE_CREDIT_CARD_STREAMING_BENEFITS": true,
+         "CURINOS_CREDIT_CARD_CAR_RENTAL_BENEFITS": true,
+         "CURINOS_CREDIT_CARD_FLIGHT_BENEFITS": true,
+         "CURINOS_CREDIT_CARD_HOTEL_BENEFITS": true,
+         "DIGITAL_CREDENTIALS_LOW_FRICTION": true,
+         "EWALLET_MERCHANT_ALLOWLIST": true,
+         "GLIC_ACTION_PAGE_BLOCK": true,
+         "HISTORY_CLUSTERS": true,
+         "HISTORY_EMBEDDINGS": true,
+         "IBAN_AUTOFILL_BLOCKED": true,
+         "LENS_OVERLAY_EDU_ACTION_CHIP_ALLOWLIST": true,
+         "LENS_OVERLAY_EDU_ACTION_CHIP_BLOCKLIST": true,
+         "NTP_NEXT_DEEP_DIVE_ACTION_CHIP_ALLOWLIST": true,
+         "NTP_NEXT_DEEP_DIVE_ACTION_CHIP_BLOCKLIST": true,
+         "OMNIBOX_AUTOFILL_IFRAME_ALLOWLIST": true,
+         "PIX_MERCHANT_ORIGINS_ALLOWLIST": true,
+         "PIX_PAYMENT_MERCHANT_ALLOWLIST": true,
+         "PIX_PSP_ALLOWLIST": true,
+         "SHARED_CREDIT_CARD_DINING_BENEFITS": true,
+         "SHARED_CREDIT_CARD_ENTERTAINMENT_BENEFITS": true,
+         "SHARED_CREDIT_CARD_FLAT_RATE_BENEFITS_BLOCKLIST": true,
+         "SHARED_CREDIT_CARD_FLIGHT_BENEFITS": true,
+         "SHARED_CREDIT_CARD_GROCERY_BENEFITS": true,
+         "SHARED_CREDIT_CARD_STREAMING_BENEFITS": true,
+         "SHARED_CREDIT_CARD_SUBSCRIPTION_BENEFITS": true,
+         "SHOPPING_PAGE_PREDICTOR": true,
+         "TEXT_CLASSIFIER_ENTITY_DETECTION": true,
+         "VCN_MERCHANT_OPT_OUT_DISCOVER": true,
+         "VCN_MERCHANT_OPT_OUT_MASTERCARD": true,
+         "VCN_MERCHANT_OPT_OUT_VISA": true,
+         "WALLETABLE_PASS_DETECTION_ALLOWLIST": true,
+         "WALLETABLE_PASS_DETECTION_BOARDING_PASS_ALLOWLIST": true,
+         "WALLETABLE_PASS_DETECTION_EVENT_PASS_ALLOWLIST": true,
+         "WALLETABLE_PASS_DETECTION_LOYALTY_ALLOWLIST": true,
+         "WALLETABLE_PASS_DETECTION_TRANSIT_TICKET_ALLOWLIST": true
+      },
+      "previously_registered_optimization_types": {
+         "ABOUT_THIS_SITE": true,
+         "AUTOFILL_ACTOR_IFRAME_ORIGIN_ALLOWLIST": true,
+         "DIGITAL_CREDENTIALS_LOW_FRICTION": true,
+         "GLIC_ACTION_PAGE_BLOCK": true,
+         "HISTORY_CLUSTERS": true,
+         "LENS_OVERLAY_EDU_ACTION_CHIP_ALLOWLIST": true,
+         "LENS_OVERLAY_EDU_ACTION_CHIP_BLOCKLIST": true,
+         "LOADING_PREDICTOR": true,
+         "MERCHANT_TRUST_SIGNALS_V2": true,
+         "PRICE_INSIGHTS": true,
+         "PRICE_TRACKING": true,
+         "SAVED_TAB_GROUP": true,
+         "SHOPPING_DISCOUNTS": true,
+         "SHOPPING_PAGE_TYPES": true,
+         "V8_COMPILE_HINTS": true
+      }
+   },
+   "password_manager": {
+      "account_store_backup_password_cleaning_last_timestamp": "13430077469330036",
+      "account_store_migrated_to_os_crypt_async": true,
+      "profile_store_backup_password_cleaning_last_timestamp": "13430077469309772",
+      "profile_store_migrated_to_os_crypt_async": true,
+      "relaunch_chrome_bubble_dismissed_counter": 0
+   },
+   "payments": {
+      "can_make_payment_enabled": false
+   },
+   "pinned_tabs": [  ],
+   "privacy_sandbox": {
+      "first_party_sets_data_access_allowed_initialized": true,
+      "first_party_sets_enabled": false
+   },
+   "profile": {
+      "avatar_index": 26,
+      "background_password_check": {
+         "check_fri_weight": 9,
+         "check_interval": "864000000000",
+         "check_mon_weight": 4,
+         "check_sat_weight": 4,
+         "check_sun_weight": 4,
+         "check_thu_weight": 9,
+         "check_tue_weight": 9,
+         "check_wed_weight": 9,
+         "next_check_time": "13430262950053408"
+      },
+      "content_settings": {
+         "exceptions": {
+            "abusive_notification_permissions": {
+            },
+            "access_to_get_all_screens_media_in_session": {
+            },
+            "anti_abuse": {
+            },
+            "app_banner": {
+               "https://duckduckgo.com:443,*": {
+                  "last_modified": "13430077442567619",
+                  "setting": {
+                     "https://duckduckgo.com/": {
+                        "next_install_text_animation": {
+                           "delay": "86400000000",
+                           "last_shown": "13430077442556785"
+                        }
+                     },
+                     "https://duckduckgo.com/?t=crhs": {
+                        "couldShowBannerEvents": 1.3430077442567564e+16
+                     }
+                  }
+               },
+               "https://www.reddit.com:443,*": {
+                  "last_modified": "13430077470193701",
+                  "setting": {
+                     "https://www.reddit.com/": {
+                        "couldShowBannerEvents": 1.3430077470193632e+16,
+                        "next_install_text_animation": {
+                           "delay": "86400000000",
+                           "last_shown": "13430077470182355"
+                        }
+                     }
+                  }
+               }
+            },
+            "ar": {
+            },
+            "are_suspicious_notifications_allowlisted_by_user": {
+            },
+            "auto_picture_in_picture": {
+            },
+            "auto_select_certificate": {
+            },
+            "automatic_downloads": {
+            },
+            "automatic_fullscreen": {
+            },
+            "autoplay": {
+            },
+            "background_sync": {
+            },
+            "bluetooth_chooser_data": {
+            },
+            "bluetooth_guard": {
+            },
+            "bluetooth_scanning": {
+            },
+            "camera_pan_tilt_zoom": {
+            },
+            "captured_surface_control": {
+            },
+            "client_hints": {
+            },
+            "clipboard": {
+            },
+            "controlled_frame": {
+            },
+            "cookie_controls_metadata": {
+               "https://[*.]duckduckgo.com,*": {
+                  "last_modified": "13430077436224112",
+                  "setting": {
+                  }
+               },
+               "https://[*.]reddit.com,*": {
+                  "last_modified": "13430077451825705",
+                  "setting": {
+                  }
+               }
+            },
+            "cookies": {
+            },
+            "direct_sockets": {
+            },
+            "direct_sockets_private_network_access": {
+            },
+            "display_media_system_audio": {
+            },
+            "disruptive_notification_permissions": {
+            },
+            "durable_storage": {
+            },
+            "fedcm_idp_registration": {
+            },
+            "fedcm_idp_signin": {
+               "https://accounts.google.com:443,*": {
+                  "last_modified": "13430077414763309",
+                  "setting": {
+                     "chosen-objects": [ {
+                        "idp-origin": "https://accounts.google.com",
+                        "idp-signin-status": false
+                     } ]
+                  }
+               }
+            },
+            "fedcm_share": {
+            },
+            "file_system_access_chooser_data": {
+            },
+            "file_system_access_extended_permission": {
+            },
+            "file_system_access_restore_permission": {
+            },
+            "file_system_last_picked_directory": {
+            },
+            "file_system_read_guard": {
+            },
+            "file_system_write_guard": {
+            },
+            "formfill_metadata": {
+            },
+            "geolocation": {
+            },
+            "geolocation_with_options": {
+            },
+            "hand_tracking": {
+            },
+            "has_migrated_local_network_access": true,
+            "hid_chooser_data": {
+            },
+            "hid_guard": {
+            },
+            "http_allowed": {
+            },
+            "https_enforced": {
+            },
+            "idle_detection": {
+            },
+            "images": {
+            },
+            "important_site_info": {
+            },
+            "initialized_translations": {
+            },
+            "inline_cue_menu": {
+            },
+            "intent_picker_auto_display": {
+            },
+            "javascript": {
+            },
+            "javascript_jit": {
+            },
+            "javascript_optimizer": {
+            },
+            "keyboard_lock": {
+            },
+            "legacy_cookie_access": {
+            },
+            "legacy_cookie_scope": {
+            },
+            "local_fonts": {
+            },
+            "local_network": {
+            },
+            "local_network_access": {
+            },
+            "loopback_network": {
+            },
+            "media_engagement": {
+               "https://duckduckgo.com:443,*": {
+                  "expiration": "13437853451831683",
+                  "last_modified": "13430077451831691",
+                  "lifetime": "7776000000000",
+                  "setting": {
+                     "hasHighScore": false,
+                     "lastMediaPlaybackTime": 0.0,
+                     "mediaPlaybacks": 0,
+                     "visits": 1
+                  }
+               },
+               "https://www.reddit.com:443,*": {
+                  "expiration": "13437853544229076",
+                  "last_modified": "13430077544229091",
+                  "lifetime": "7776000000000",
+                  "setting": {
+                     "hasHighScore": false,
+                     "lastMediaPlaybackTime": 0.0,
+                     "mediaPlaybacks": 0,
+                     "visits": 1
+                  }
+               }
+            },
+            "media_stream_camera": {
+            },
+            "media_stream_mic": {
+            },
+            "midi_sysex": {
+            },
+            "mixed_script": {
+            },
+            "nfc_devices": {
+            },
+            "notification_interactions": {
+            },
+            "notification_permission_review": {
+            },
+            "notifications": {
+            },
+            "ondevice_languages_downloaded": {
+            },
+            "password_protection": {
+            },
+            "payment_handler": {
+            },
+            "permission_actions_history": {
+            },
+            "permission_autoblocking_data": {
+            },
+            "permission_autorevocation_data": {
+            },
+            "pointer_lock": {
+            },
+            "popups": {
+            },
+            "protocol_handler": {
+            },
+            "reduced_accept_language": {
+            },
+            "safe_browsing_url_check_data": {
+            },
+            "sensors": {
+            },
+            "serial_chooser_data": {
+            },
+            "serial_guard": {
+            },
+            "site_engagement": {
+               "chrome://newtab/,*": {
+                  "last_modified": "13430077428758222",
+                  "setting": {
+                     "lastEngagementTime": 1.343007742874554e+16,
+                     "lastShortcutLaunchTime": 0.0,
+                     "pointsAddedToday": 3.6,
+                     "rawScore": 3.6
+                  }
+               },
+               "https://duckduckgo.com:443,*": {
+                  "last_modified": "13430077449098761",
+                  "setting": {
+                     "lastEngagementTime": 1.343007744909874e+16,
+                     "lastShortcutLaunchTime": 0.0,
+                     "pointsAddedToday": 2.1,
+                     "rawScore": 2.1
+                  }
+               },
+               "https://www.reddit.com:443,*": {
+                  "last_modified": "13430077520529920",
+                  "setting": {
+                     "lastEngagementTime": 1.3430077520505544e+16,
+                     "lastShortcutLaunchTime": 0.0,
+                     "pointsAddedToday": 3.9000000000000004,
+                     "rawScore": 3.9000000000000004
+                  }
+               }
+            },
+            "sound": {
+            },
+            "speaker_selection": {
+            },
+            "ssl_cert_decisions": {
+            },
+            "storage_access": {
+            },
+            "storage_access_header_origin_trial": {
+            },
+            "sub_apps_without_prompts": {
+            },
+            "subresource_filter": {
+            },
+            "subresource_filter_data": {
+            },
+            "suspicious_notification_ids": {
+            },
+            "suspicious_notification_show_original": {
+            },
+            "top_level_storage_access": {
+            },
+            "unused_site_permissions": {
+            },
+            "usb_chooser_data": {
+            },
+            "usb_guard": {
+            },
+            "vr": {
+            },
+            "web_app_installation": {
+            },
+            "webid_api": {
+            },
+            "webid_auto_reauthn": {
+            },
+            "window_placement": {
+            }
+         },
+         "pref_version": 1
+      },
+      "created_by_version": "151.0.7922.71",
+      "creation_time": "13430077403884959",
+      "default_content_setting_values": {
+         "has_migrated_local_network_access": true,
+         "payment_handler": 2
+      },
+      "exit_type": "Normal",
+      "family_member_role": "not_in_family",
+      "last_engagement_time": "13430077520505544",
+      "last_time_obsolete_http_credentials_removed": 1785603869.318659,
+      "last_time_password_store_metrics_reported": 1785603837.715451,
+      "managed": {
+         "locally_parent_approved_extensions": {
+         },
+         "locally_parent_approved_extensions_migration_state": 1
+      },
+      "managed_user_id": "",
+      "name": "Your Chromium",
+      "password_hash_data_list": [  ],
+      "were_old_google_logins_removed": true
+   },
+   "profile_network_context_service": {
+      "http_cache_finch_experiment_groups": "None None None None"
+   },
+   "protection": {
+      "macs": {
+         "account_values": {
+            "browser": {
+               "show_home_button": "F6B8688079AA4C4657C3FEDCF3311348C99CB4907EEC8560CC323E4F37D1EA41",
+               "show_home_button_encrypted_hash": "djEwotRkFT2vHnhhCIA/V+DRZrZjLnP+b+0VwSGjql5xrXDmPtBAfaZbFURGViRnbnec"
+            },
+            "extensions": {
+               "ui": {
+                  "developer_mode": "C4B515ABCB16541C88B522387A89F47E24F150FF18A7256BF19EE2C0896D7555",
+                  "developer_mode_encrypted_hash": "djEwnGn4HyLm571QCCeecs4XAyIbPpI4sjZ8ckF6sff8BGbQEywtWeDm4qpSwJqGYOvN"
+               }
+            },
+            "homepage": "0F156BE8FFEDBF22CC2E394D6BD8DDD392F953D0F397958C64EFA57087182457",
+            "homepage_encrypted_hash": "djEwez6wt5PtkfTxuN+U9KVU6gUa9/33imjLLrtlo3LT0Y1d/stHX2XjJEWHwpeLGZY1",
+            "homepage_is_newtabpage": "BAF0DE42A6FEAC5EF6500592AEC92B79DC055C1E352B0F7BAC0BB6E72ECE67D3",
+            "homepage_is_newtabpage_encrypted_hash": "djEwNuiyCSZBdqhV7ESdO8yuXbA1NHRVLQ2svfo+ZK5oaIry2f9Cx4rce+mIbAEw7G0P",
+            "session": {
+               "restore_on_startup": "81940185F7F78D0317AB3741FA4A283985C31DB3BF95D3A4DDD4CD78FC5021F1",
+               "restore_on_startup_encrypted_hash": "djEwFEzg0id00W34Gz2o0K8gX+KMNet+dXfslTgHKA9xnZMI4OplF+GZvcpGWGX5hEYJ",
+               "startup_urls": "B41DC391D323AEB2C5465D75AB79284F9F6620BEF161110DE35202261FF03449",
+               "startup_urls_encrypted_hash": "djEwghL6jSVRi8mLaRGAB/JzS+xXBtxjeESAqUdFS7oORXVQ1jXID0VGOoaLWOgIcbzO"
+            }
+         },
+         "browser": {
+            "show_home_button": "9463DEC4C15E47646D05FD921E0E475249EA15DE77808C4664EF238C54D89FC7",
+            "show_home_button_encrypted_hash": "djEw7yR6WqQt12q4/7WXKVhYqUw9ZLLch8Bn5pJ5lZv361SrK7Qk2jN+YH1DB60Z9nkS"
+         },
+         "default_search_provider_data": {
+            "template_url_data": "575D258E47F940C6887685ABA99A5839CBFE4BA30863349DFE0D0C375AAB8816",
+            "template_url_data_encrypted_hash": "djEwzkpvA9+swWTDV77WN7hWEwIE+/MvksCTQp4rKgJsLjCiagQhCIMUK3mxnliviILf"
+         },
+         "enterprise_signin": {
+            "policy_recovery_token": "7D3124ECAF7E96407EB65EAF5A43B02C7EE5F2D4A9FA38A9F371F9E1B74D6383",
+            "policy_recovery_token_encrypted_hash": "djEwntGC63MNa+3FPXvwkgoSZGXvXYrVoevkgw7qmK06Zwt7RdLbwPV3QCnGv8fsmfLO"
+         },
+         "extensions": {
+            "install": {
+               "initiallist": "C4198D2BD78E8583F28949527AFAF812E91E0FDC52A4073D194D2EED1E0B844E",
+               "initiallist_encrypted_hash": "djEwQLcC8fv06YTLPrmJnEwK8hfzxuBeLFX/7h419dq6Bxw2Bh1da6JIBsX8BIBeRgwR",
+               "initialprovidername": "1E3E28B22E03D48AE3BFCC34F139FE76DEB9E56C69EB2B915C214F54C06B52DB",
+               "initialprovidername_encrypted_hash": "djEwPw+Rq9vRNBBUp3VEEukE/yiDjFPkTEkB3Q3LNMRIhucejkbloomj6KJVosUGfFgN"
+            },
+            "settings": {
+               "mhjfbmdgcfjbbpaeojofohoefgiehjai": "B0ADB42C29BA6E67C367485AEF6C9E72F1ED577DCADAE5CBC718B5D4DB5D9872"
+            },
+            "settings_encrypted_hash": {
+               "mhjfbmdgcfjbbpaeojofohoefgiehjai": "djEw9E5LZxUnyFMb8nCeUmcWIwYUj0r8k0Ga5rn20bxcJyNX2koMpU+tPejgtUQf8A1h"
+            },
+            "ui": {
+               "developer_mode": "55A29C051727FCAC1BDA847CCDE40838B2068CFA589E88819EA9FB17E4BD7320",
+               "developer_mode_encrypted_hash": "djEwuSLe9IdmBUATWBHHs7zsIrMSzx7pZ6JTHR8otknIBz+qN2MkhgBcyaDLS6rEKzM/"
+            }
+         },
+         "google": {
+            "services": {
+               "account_id": "E5B4CD7C5FA271A47D07D462465AFD63DBF6A8CDFAFEF4839D13F8F552131486",
+               "account_id_encrypted_hash": "djEws5EOag2fZGfyxpqHcku8joB6KwiFyWcmiFR/aVXfXX6OvP/bjwC8JQV6CzNTKMMu",
+               "last_signed_in_username": "82DB8D884695C643C31778B7B50DBB376848E2F81B5A1AECDA34FD448CECD10D",
+               "last_signed_in_username_encrypted_hash": "djEwxOmun3qSdHJMQzaJrU+kjwQLP+13cHAn1VOQvoQtqSk/p/pGFhbaSzbJpX4wwHgm",
+               "last_username": "24FCEF9BF7DF12A2935BE143E58951E09DBAA1D3E0E24430C0FF93009F5D6AFD",
+               "last_username_encrypted_hash": "djEwUrwWTlb71Rdn7Dja+dvU5v0mcEbu5mgSO71viEUKKH+f/HHPQ9PpahcBiBCBPv8C"
+            }
+         },
+         "homepage": "612967A208F154218AEDE6D1D3C112663279440137971DED3749F688D094D9E2",
+         "homepage_encrypted_hash": "djEwVHl5mtEClsWu8c45Grwtq7yvcZkHcSGf2qlmABOh+6shzMulkRyqGnkOch0qt8CR",
+         "homepage_is_newtabpage": "547DD594A200A6C826A149309738E7FAD622F4D7B1B875CD6ECB2E96F2940E21",
+         "homepage_is_newtabpage_encrypted_hash": "djEw0Iu/L56MWItg1h+BGnzTQCaqG2koj0Kt+TvQO2gRWyoo6ZuYgaOPhX8GDZNFCI4O",
+         "media": {
+            "storage_id_salt": "E1848263E6199A89D48A7FDF168364BF0F31246A18227F3D149D4088C7F4D667",
+            "storage_id_salt_encrypted_hash": "djEwmus7A6SiHO78MEjfL8UH7gPMKzNqfXxuxeOCVs7oMQHvhcUctFVQ/H+biDlrSfmN"
+         },
+         "pinned_tabs": "699F1AC92729A024B80605AFC3C63BFB2A35B70C4214581BBE108F851528E9E8",
+         "pinned_tabs_encrypted_hash": "djEwWWzDrSaMLtgsEw/+Gm0mxCsOZDVi9oV24mKKlydfO4BJ+oH89l9wazE660PTgWyL",
+         "prefs": {
+            "preference_reset_time": "95C909F3D0669D5931907B455F099C510E7770D9F0BA6FF13E4C76101B44F757",
+            "preference_reset_time_encrypted_hash": "djEwyqoM/JGpKiFlXV3eoINFUv2ETBFL4NGU4ieOBHK8c6NFWgNZelQ+eaT90ssc6IS/"
+         },
+         "safebrowsing": {
+            "incidents_sent": "569707D9A4676B72F48BE92B740BE3EF895419C8A646F1AE1BA70BD9C3B41845",
+            "incidents_sent_encrypted_hash": "djEwMiMAX53T1art8hiNWR2KtJtvDx/Ug453nMjIrrEJhrKvzT9/gP0n1oArCPjd05vR"
+         },
+         "schedule_to_flush_to_disk": "C58BDADE74AA031B3CAE6BBB02287C61A9DA977845BEFFE3DE68AFD265DC3C64",
+         "schedule_to_flush_to_disk_encrypted_hash": "djEw0bnQj+LNxY7GzMdRxSJQgFttN4NCMMKvuVvTAzmISYgTcIyWkIdKDUAenOu0y6XF",
+         "search_provider_overrides": "359EACF4B741613E008062C66B6DAD80C68DDBC38DABA7455548A8BEE34C3FE7",
+         "search_provider_overrides_encrypted_hash": "djEwxLDV6cQXF45t8X1gtiM0J6FMjEfgzGIaY583WfvBLRY4NGdcJcsCTUqfQ3RCsose",
+         "session": {
+            "restore_on_startup": "F9BD26F5D1AA6AB5258754888529CB2A82AE68D1703BCC2A97DEAEE5DDDA190E",
+            "restore_on_startup_encrypted_hash": "djEw9KqVM3yzw2hBpRQs9cgmZz1EepB9mkNSYLmMWTe+s949xVxZNzKTFwIKzQYpLzqG",
+            "startup_urls": "8BB8DBC1D7CA5C58F821C38254FB2B9C874F8EE9B9905B57DE48C731C6C91837",
+            "startup_urls_encrypted_hash": "djEwQZx2i/wNzOqRtH3q8zoq3uvH2GfwPEM4MJtVt+cymnLfCjxp2xQeLnhTdFdNMrtB"
+         }
+      },
+      "super_encrypted_hash": "djEwT2bqyMf/xoaA/Hgom8X24QKpVckIAbPFHaf2nuFqVnL0gaHuNQSCr5q+yI4myQoN"
+   },
+   "safebrowsing": {
+      "enabled": false,
+      "event_timestamps": {
+      },
+      "metrics_last_log_time": "13430077408",
+      "scout_reporting_enabled_when_deprecated": false
+   },
+   "safety_hub": {
+      "unused_site_permissions_revocation": {
+         "migration_completed": true
+      }
+   },
+   "saved_tab_groups": {
+      "did_enable_shared_tab_groups_in_last_session": false,
+      "specifics_to_data_migration": true
+   },
+   "schedule_to_flush_to_disk": "13430077412329636",
+   "search": {
+      "suggest_enabled": false
+   },
+   "search_provider_overrides": [ {
+      "enabled": true,
+      "encoding": "UTF-8",
+      "favicon_url": "https://duckduckgo.com/favicon.ico",
+      "id": 2,
+      "keyword": "duckduckgo.com",
+      "name": "DuckDuckGo",
+      "new_tab_url": "https://duckduckgo.com/chrome_newtab",
+      "search_url": "https://duckduckgo.com/?q={searchTerms}",
+      "suggest_url": "https://duckduckgo.com/ac/?q={searchTerms}&type=list"
+   } ],
+   "search_provider_overrides_version": 1,
+   "segmentation_platform": {
+      "client_result_prefs": "ClIKDXNob3BwaW5nX3VzZXISQQo2DQAAAAAQsLuEjtnS7RcaJAocChoNAAAAPxIMU2hvcHBpbmdVc2VyGgVPdGhlchIEEAIYBCADEJCehY7Z0u0X",
+      "device_switcher_util": {
+         "result": {
+            "labels": [ "NotSynced" ]
+         }
+      },
+      "last_db_compaction_time": "13429929599000000",
+      "uma_in_sql_start_time": "13430077408149415"
+   },
+   "sessions": {
+      "event_log": [ {
+         "crashed": false,
+         "time": "13430077408107546",
+         "type": 0
+      }, {
+         "did_schedule_command": true,
+         "first_session_service": true,
+         "tab_count": 1,
+         "time": "13430077544003179",
+         "type": 2,
+         "window_count": 1
+      } ],
+      "session_data_status": 3
+   },
+   "settings": {
+      "force_google_safesearch": false
+   },
+   "signin": {
+      "accounts_metadata_dict": {
+      },
+      "allowed": false,
+      "allowed_on_next_startup": false
+   },
+   "site_search_settings": {
+      "overridden_keywords": [  ]
+   },
+   "spellcheck": {
+      "dictionaries": [ "en-US" ],
+      "dictionary": ""
+   },
+   "sync": {
+      "data_type_status_for_sync_to_signin": {
+         "account_setting": false,
+         "ai_thread": false,
+         "app_list": false,
+         "app_settings": false,
+         "apps": false,
+         "arc_package": false,
+         "autofill": false,
+         "autofill_profiles": false,
+         "autofill_valuable": false,
+         "autofill_valuable_metadata": false,
+         "autofill_wallet": false,
+         "autofill_wallet_credential": false,
+         "autofill_wallet_metadata": false,
+         "autofill_wallet_offer": false,
+         "autofill_wallet_usage": false,
+         "bookmarks": false,
+         "collaboration_group": false,
+         "contact_info": false,
+         "contextual_task": false,
+         "cookies": false,
+         "device_info": false,
+         "dictionary": false,
+         "extension_settings": false,
+         "extensions": false,
+         "gemini_thread": false,
+         "history": false,
+         "history_delete_directives": false,
+         "incoming_password_sharing_invitation": false,
+         "managed_user_settings": false,
+         "nigori": false,
+         "os_preferences": false,
+         "os_priority_preferences": false,
+         "outgoing_password_sharing_invitation": false,
+         "passwords": false,
+         "plus_address": false,
+         "plus_address_setting": false,
+         "preferences": false,
+         "printers": false,
+         "printers_authorization_servers": false,
+         "priority_preferences": false,
+         "product_comparison": false,
+         "reading_list": false,
+         "saved_tab_group": false,
+         "search_engines": false,
+         "security_events": false,
+         "send_tab_to_self": false,
+         "sessions": false,
+         "shared_comment": false,
+         "shared_tab_group_account_data": false,
+         "shared_tab_group_data": false,
+         "sharing_message": false,
+         "skill": false,
+         "themes": false,
+         "themes_android": false,
+         "themes_ios": false,
+         "user_consent": false,
+         "user_events": false,
+         "web_apps": false,
+         "webapks": false,
+         "webauthn_credential": false,
+         "wifi_configurations": false,
+         "workspace_desk": false
+      },
+      "encryption_bootstrap_token_per_account_migration_done": true,
+      "feature_status_for_sync_to_signin": 5
+   },
+   "syncing_theme_prefs_migrated_to_non_syncing": true,
+   "toolbar": {
+      "pinned_cast_migration_complete": true,
+      "pinned_chrome_labs_migration_complete": true
+   },
+   "total_passwords_available_for_account": 0,
+   "total_passwords_available_for_profile": 0,
+   "web_apps": {
+      "did_migrate_default_chrome_apps": [ "MigrateDefaultChromeAppToWebAppsGSuite", "MigrateDefaultChromeAppToWebAppsNonGSuite" ],
+      "last_preinstall_synchronize_version": "151"
+   }
+}
+[1785604216.397][INFO]: Populating Local State file: {
+   "autofill": {
+      "ablation_seed": "aH/+CVQWUiE="
+   },
+   "breadcrumbs": {
+      "enabled": false,
+      "enabled_time": "13430077406636859"
+   },
+   "browser": {
+      "first_run_finished": true
+   },
+   "chrome_labs_activation_threshold": 1,
+   "chrome_labs_new_badge_dict": {
+   },
+   "hardware_acceleration_mode_previous": true,
+   "legacy": {
+      "profile": {
+         "name": {
+            "migrated": true
+         }
+      }
+   },
+   "local": {
+      "password_hash_data_list": [  ]
+   },
+   "management": {
+      "platform": {
+         "last_log_time": "13430077408019076"
+      }
+   },
+   "network_time": {
+      "network_time_mapping": {
+         "local": 1.785603810622865e+12,
+         "network": 1.785603810422e+12,
+         "ticks": 301475919964.0,
+         "uncertainty": 10087604.0
+      }
+   },
+   "optimization_guide": {
+      "model_execution": {
+         "last_usage_by_feature": {
+         }
+      },
+      "model_store_metadata": {
+      },
+      "on_device": {
+         "last_version": "151.0.7922.71",
+         "model_crash_count": 0
+      },
+      "predictionmodelfetcher": {
+         "last_fetch_attempt": "13430077417709553"
+      }
+   },
+   "os_crypt": {
+      "portal": {
+         "prev_desktop": "X-Generic",
+         "prev_init_success": false
+      }
+   },
+   "performance_intervention": {
+      "last_daily_sample": "13430077416062462"
+   },
+   "policy": {
+      "last_statistics_update": "13430077406630401"
+   },
+   "profile": {
+      "info_cache": {
+         "Default": {
+            "active_time": 1785603816.059992,
+            "avatar_icon": "chrome://theme/IDR_PROFILE_AVATAR_26",
+            "background_apps": false,
+            "default_avatar_fill_color": -2890755,
+            "default_avatar_stroke_color": -16166200,
+            "force_signin_profile_locked": false,
+            "gaia_id": "",
+            "is_consented_primary_account": false,
+            "is_ephemeral": false,
+            "is_using_default_avatar": true,
+            "is_using_default_name": false,
+            "managed_user_id": "",
+            "metrics_bucket_index": 1,
+            "name": "Work",
+            "profile_color_seed": -16033840,
+            "profile_highlight_color": -2890755,
+            "signin.with_credential_provider": false,
+            "user_name": ""
+         }
+      },
+      "last_active_profiles": [  ],
+      "metrics": {
+         "next_bucket_index": 2
+      },
+      "profile_counts_reported": "13430077406713226",
+      "profiles_order": [ "Default" ]
+   },
+   "session_id_generator_last_value": "1565282641",
+   "signin": {
+      "active_accounts_last_emitted": "13430077403885814"
+   },
+   "subresource_filter": {
+      "ruleset_version": {
+         "checksum": 1751974980,
+         "content": "9.70.0",
+         "format": 38
+      }
+   },
+   "tab_stats": {
+      "discards_external": 0,
+      "discards_frozen": 0,
+      "discards_proactive": 0,
+      "discards_suggested": 0,
+      "discards_urgent": 0,
+      "last_daily_sample": "13430077406525852",
+      "max_tabs_per_window": 1,
+      "reloads_external": 0,
+      "reloads_frozen": 0,
+      "reloads_proactive": 0,
+      "reloads_suggested": 0,
+      "reloads_urgent": 0,
+      "total_tab_count_max": 1,
+      "window_count_max": 1
+   },
+   "toast": {
+      "non_milestone_update_toast_version": "151.0.7922.71"
+   },
+   "ukm": {
+      "persisted_logs": [  ]
+   },
+   "uninstall_metrics": {
+      "installation_date2": "1785603803"
+   },
+   "updateclientdata": {
+      "apps": {
+         "bjbcblmdcnggnibecjikpoljcgkbgphl": {
+            "cohort": "1:2t4f:",
+            "cohortname": "Stable",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "1b395de7-1991-4b0a-be65-78630ee221ec",
+            "pv": "20260723.1"
+         },
+         "efniojlnjndmcbiieegkicadnoecjjef": {
+            "cohort": "1:18ql:",
+            "cohortname": "Auto Stage3",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "d2f2480c-fd9e-453a-9183-9a1f45061be0",
+            "pv": "1733"
+         },
+         "gcmjkmgdlgnkkcocmoeiminaijmmjnii": {
+            "cohort": "1:bm1:",
+            "cohortname": "Stable",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "82a569b8-f34d-4eb4-a56b-f77b7186e87f",
+            "pv": "9.70.0"
+         },
+         "ggkkehgbnfjpeggfpleeakpidbkibbmn": {
+            "cohort": "1:ut9/1a0f:",
+            "cohortname": "M108 and Above",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "aaf81217-e8d9-4686-b27c-8ac046be457e",
+            "pv": "2026.7.30.63"
+         },
+         "giekcmmlnklenlaomppkphknjmnnpneh": {
+            "cohort": "1:j5l:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "7cf7c976-18ab-4e46-b8af-e350a0574697",
+            "pv": "7"
+         },
+         "gonpemdgkjcecdgbnaabipppbmgfggbe": {
+            "cohort": "1:z1x:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "7598884f-bbcb-4fa6-b127-50da555e433a",
+            "pv": "2025.7.24.0"
+         },
+         "hajigopbbjhghbfimgkfmpenfkclmohk": {
+            "cohort": "1:2tdl:",
+            "cohortname": "Stable",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "9d03869d-7376-4ce1-8118-26909396e495",
+            "pv": "4"
+         },
+         "hfnkpimlhhgieaddgfemjhofmfblmnib": {
+            "cohort": "1:287f:",
+            "cohortname": "Auto full",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "4a0830fa-2ff1-4c39-ad0c-998233485a87",
+            "pv": "10687"
+         },
+         "jamhcnnkihinmdlkakkaopbjbbcngflc": {
+            "cohort": "1:wvr:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "ccb0ef19-fa04-48fd-8ee0-70868e6470e4",
+            "pv": "120.0.6050.0"
+         },
+         "jflookgnkcckhobaglndicnbbgbonegd": {
+            "cohort": "1:s7x:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "525128b6-20be-427d-b0da-8880c8b07a81",
+            "pv": "3091"
+         },
+         "khaoiebndkojlmppeemjhbpbandiljpe": {
+            "cohort": "1:cux:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "25e6a5c1-4146-4da2-8684-0893b0c19c4e",
+            "pv": "145.0.7584.0"
+         },
+         "kiabhabjdbkjdpjbpigfodbdjmbglcoo": {
+            "cohort": "1:v3l:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "4f8e0597-f80a-4065-8e1f-573e0a9e993b",
+            "pv": "2026.3.23.1"
+         },
+         "laoigpblnllgcgjnjnllmfolckpjlhki": {
+            "cohort": "1:10zr:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "7009ca18-792a-4550-bff3-2bceb98bdf37",
+            "pv": "1.1.0.3"
+         },
+         "llkgjffcdpffmhiakmfcdcblohccpfmo": {
+            "cohort": "1::",
+            "cohortname": "",
+            "dlrc": 7152,
+            "installdate": 7152,
+            "pf": "155f6793-1e40-4af2-a0f9-d4ab95dd2a21"
+         },
+         "lmelglejhemejginpboagddgdfbepgmp": {
+            "cohort": "1:lwl:3m9f@0.0",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "0edc1d25-c1f5-463c-abfd-dec5c7b050c3",
+            "pv": "719"
+         },
+         "niikhdgajlphfehepabhhblakbdgeefj": {
+            "cohort": "1:1uh3:",
+            "cohortname": "Auto Main Cohort.",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "50d89950-cd4b-4f91-8a11-8b4eb2989dde",
+            "pv": "2025.6.16.0"
+         },
+         "ninodabcejpeglfjbkhdplaoglpcbffj": {
+            "cohort": "1:3bsf:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "5055de99-b2cf-4fa0-a099-61987b57d94d",
+            "pv": "9.5220.3721"
+         },
+         "obedbbhbpmojnkanicioggnmelmoomoc": {
+            "cohort": "1:s6f:3cr3@0.025",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "b31303e1-ff42-4570-9470-12c64f69345b",
+            "pv": "20251024.824731831.14"
+         },
+         "ojhpjlocmbogdgmfpkhlaaeamibhnphh": {
+            "cohort": "1:w0x:",
+            "cohortname": "All users",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "dda29458-f3cd-446a-86f2-b28dc1af15db",
+            "pv": "3"
+         },
+         "pficcddpglkpaaihklmahepgjmefdnom": {
+            "cohort": "1:3exl:",
+            "cohortname": "Auto",
+            "dlrc": 7152,
+            "fp": "",
+            "installdate": 7152,
+            "max_pv": "0.0.0.0",
+            "pf": "f44afcb7-e087-49ba-b9d3-b16c89517c85",
+            "pv": "8.5419.4434"
+         }
+      }
+   },
+   "user_experience_metrics": {
+      "consent_restructure_feature_state": false,
+      "limited_entropy_randomization_source": "55ED2CA17A1533DFEA0E2E3D2B9479C5",
+      "low_entropy_source3": 2343,
+      "pseudo_low_entropy_source": 6537,
+      "session_id": 0,
+      "stability": {
+         "browser_last_live_timestamp": "13430077544876503",
+         "exited_cleanly": true,
+         "stats_buildtime": "1785272936",
+         "stats_version": "151.0.7922.71-64-devel"
+      }
+   },
+   "variations_google_groups": {
+      "Default": [  ]
+   },
+   "was": {
+      "restarted": false
+   }
+}
+[1785604216.435][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1785604216.438][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1785604216.438][INFO]: Launching chrome: /usr/bin/chromium --allow-pre-commit-input --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-client-side-phishing-detection --disable-default-apps --disable-features=IgnoreDuplicateNavs,Prewarm --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging=stderr --log-level=0 --no-first-run --no-service-autorun --password-store=basic --profile-directory=Default --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/home/gnaveenpaul123/.config/fraud_profile
+
+DevTools listening on ws://127.0.0.1:33793/devtools/browser/52b1b54b-0eea-4b2b-a251-2257b3125ff2
+[1785604229.349][DEBUG]: DevTools HTTP Request: http://localhost:33793/json/version
+[3028:3028:0801/224029.650054:WARNING:ui/gl/angle_platform_impl.cc:52] renderergl_utils.cpp:2115 (GenerateCaps): Disabling GL_EXT_clip_cull_distance because only 8 clip distances, 0 cull distances and 0 combined clip/cull distances are supported by the driver.
+[2936:2936:0801/224029.696687:WARNING:ui/ozone/platform/wayland/host/wayland_surface.cc:170] Server doesn't support zcr_alpha_compositing_v1.
+[2936:2936:0801/224029.696952:WARNING:ui/ozone/platform/wayland/host/wayland_surface.cc:185] Server doesn't support overlay_prioritizer.
+[2936:2936:0801/224029.696984:WARNING:ui/ozone/platform/wayland/host/wayland_surface.cc:200] Server doesn't support wp_content_type_v1
+[2936:2936:0801/224029.697003:WARNING:ui/ozone/platform/wayland/host/wayland_surface.cc:214] Server doesn't support wp_color_management_surface_v1.
+[2936:2936:0801/224029.720777:WARNING:ui/ozone/platform/wayland/host/wayland_connection.cc:408] text-input-v3 not available.
+[3028:3028:0801/224030.069293:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[2936:2936:0801/224031.147879:WARNING:ui/ozone/platform/wayland/host/org_gnome_mutter_idle_monitor.cc:87] org.gnome.Mutter.IdleMonitor D-Bus service does not exist
+[1785604231.221][DEBUG]: DevTools HTTP Response: {
+   "Browser": "Chrome/151.0.7922.71",
+   "Protocol-Version": "1.3",
+   "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+   "V8-Version": "15.1.206.10",
+   "WebKit-Version": "537.36 (@ef35003457e93c278f911a334b06e4a5f8967e06)",
+   "webSocketDebuggerUrl": "ws://localhost:33793/devtools/browser/52b1b54b-0eea-4b2b-a251-2257b3125ff2"
+}
+
+[1785604231.229][DEBUG]: DevTools HTTP Request: http://localhost:33793/json/list
+[1785604231.456][DEBUG]: DevTools HTTP Response: [ {
+   "description": "",
+   "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@ef35003457e93c278f911a334b06e4a5f8967e06/inspector.html?ws=localhost:33793/devtools/page/7234F646960402E4D60B63694F0E3155",
+   "id": "7234F646960402E4D60B63694F0E3155",
+   "title": "New Tab",
+   "type": "page",
+   "url": "chrome://newtab/",
+   "webSocketDebuggerUrl": "ws://localhost:33793/devtools/page/7234F646960402E4D60B63694F0E3155"
+} ]
+
+[1785604231.506][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1785604231.682][DEBUG]: DevTools WebSocket Command: Target.getTargets (id=1) (session_id=) browser {
+   "filter": [ {
+      "exclude": true,
+      "type": "browser"
+   }, {
+      "exclude": true,
+      "type": "page"
+   }, {
+      "exclude": false
+   } ]
+}
+[1785604231.856][DEBUG]: DevTools WebSocket Response: Target.getTargets (id=1) (session_id=) browser {
+   "targetInfos": [ {
+      "attached": false,
+      "browserContextId": "96C5ECE743366D15E96D6BAA7D6EAF57",
+      "canAccessOpener": false,
+      "embedderData": {
+         "tabActive": true,
+         "tabPinned": false,
+         "tabStripIndex": 0
+      },
+      "targetId": "31F92CC249CF3F99C05E91331AAC3CD8",
+      "title": "New Tab",
+      "type": "tab",
+      "url": "chrome://newtab/"
+   } ]
+}
+[1785604231.856][DEBUG]: DevTools WebSocket Command: Target.attachToTarget (id=2) (session_id=) browser {
+   "flatten": true,
+   "targetId": "31F92CC249CF3F99C05E91331AAC3CD8"
+}
+[1785604231.872][DEBUG]: DevTools WebSocket Event: Target.attachedToTarget (session_id=) browser {
+   "sessionId": "289305601207FFBC3BF38F6FCAF043D5",
+   "targetInfo": {
+      "attached": true,
+      "browserContextId": "96C5ECE743366D15E96D6BAA7D6EAF57",
+      "canAccessOpener": false,
+      "embedderData": {
+         "tabActive": true,
+         "tabPinned": false,
+         "tabStripIndex": 0
+      },
+      "targetId": "31F92CC249CF3F99C05E91331AAC3CD8",
+      "title": "New Tab",
+      "type": "tab",
+      "url": "chrome://newtab/"
+   },
+   "waitingForDebugger": false
+}
+[1785604231.873][DEBUG]: DevTools WebSocket Response: Target.attachToTarget (id=2) (session_id=) browser {
+   "sessionId": "289305601207FFBC3BF38F6FCAF043D5"
+}
+[1785604231.873][DEBUG]: DevTools WebSocket Command: Target.setAutoAttach (id=3) (session_id=289305601207FFBC3BF38F6FCAF043D5) 31F92CC249CF3F99C05E91331AAC3CD8 {
+   "autoAttach": true,
+   "flatten": true,
+   "waitForDebuggerOnStart": false
+}
+[1785604231.924][DEBUG]: DevTools WebSocket Event: Target.attachedToTarget (session_id=289305601207FFBC3BF38F6FCAF043D5) 31F92CC249CF3F99C05E91331AAC3CD8 {
+   "sessionId": "19D84DB4094915A9778F2F75977D8CDE",
+   "targetInfo": {
+      "attached": true,
+      "browserContextId": "96C5ECE743366D15E96D6BAA7D6EAF57",
+      "canAccessOpener": false,
+      "targetId": "7234F646960402E4D60B63694F0E3155",
+      "title": "New Tab",
+      "type": "page",
+      "url": "chrome://newtab/"
+   },
+   "waitingForDebugger": false
+}
+[1785604231.924][DEBUG]: DevTools WebSocket Command: Page.enable (id=4) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604231.924][DEBUG]: DevTools WebSocket Command: Page.addScriptToEvaluateOnNewDocument (id=5) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "source": "(function () {window.cdc_adoQpoasnfa76pfcZLmcfl_Array = window.Array;window.cdc_adoQpoasnfa76pfcZLmcfl_Object = window.Object;window.cdc_adoQpoasnfa76pfcZLmcfl_Promise = window.Promise;window.cdc_a..."
+}
+[1785604231.925][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=6) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "expression": "(function () {window.cdc_adoQpoasnfa76pfcZLmcfl_Array = window.Array;window.cdc_adoQpoasnfa76pfcZLmcfl_Object = window.Object;window.cdc_adoQpoasnfa76pfcZLmcfl_Promise = window.Promise;window.cdc_a..."
+}
+[1785604231.925][DEBUG]: DevTools WebSocket Command: Log.enable (id=7) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604231.935][DEBUG]: DevTools WebSocket Command: Target.setAutoAttach (id=8) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "autoAttach": true,
+   "flatten": true,
+   "waitForDebuggerOnStart": false
+}
+[1785604231.942][DEBUG]: DevTools WebSocket Response: Target.setAutoAttach (id=3) (session_id=289305601207FFBC3BF38F6FCAF043D5) 31F92CC249CF3F99C05E91331AAC3CD8 {
+}
+[1785604231.954][DEBUG]: DevTools WebSocket Event: Page.frameStartedNavigating (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "frameId": "7234F646960402E4D60B63694F0E3155",
+   "loaderId": "32EF271144237C78D46938D88C7B3FAA",
+   "navigationType": "differentDocument",
+   "url": "https://duckduckgo.com/chrome_newtab"
+}
+[1785604232.027][DEBUG]: DevTools WebSocket Response: Page.enable (id=4) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.029][DEBUG]: DevTools WebSocket Response: Page.addScriptToEvaluateOnNewDocument (id=5) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "identifier": "1"
+}
+[2936:2936:0801/224032.114747:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[1785604232.210][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=6) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "result": {
+      "type": "undefined"
+   }
+}
+[1785604232.210][DEBUG]: DevTools WebSocket Response: Log.enable (id=7) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.210][DEBUG]: DevTools WebSocket Response: Target.setAutoAttach (id=8) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.210][DEBUG]: DevTools WebSocket Command: Runtime.enable (id=9) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.252][DEBUG]: DevTools WebSocket Event: Runtime.executionContextCreated (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+   "context": {
+      "auxData": {
+         "frameId": "7234F646960402E4D60B63694F0E3155",
+         "isDefault": true,
+         "type": "default"
+      },
+      "id": 1,
+      "name": "",
+      "origin": "://",
+      "uniqueId": "2844251481226594843.2903634987921642491"
+   }
+}
+[1785604232.252][DEBUG]: DevTools WebSocket Response: Runtime.enable (id=9) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.252][DEBUG]: DevTools WebSocket Command: Runtime.enable (id=10) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.326][DEBUG]: DevTools WebSocket Response: Runtime.enable (id=10) (session_id=19D84DB4094915A9778F2F75977D8CDE) 7234F646960402E4D60B63694F0E3155 {
+}
+[1785604232.326][INFO]: [5b6be7c95ad6266b0460a1704488533c] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "151.0.7922.71",
+      "chrome": {
+         "chromedriverVersion": "151.0.7922.71 (ef35003457e93c278f911a334b06e4a5f8967e06-refs/branch-heads/7922_47@{#11})",
+         "userDataDir": "/home/gnaveenpaul123/.config/fraud_profile"
+      },
+      "fedcm:accounts": true,
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:33793"
+      },
+      "goog:processID": 2936,
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "linux",
+      "proxy": {
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "~~~": "..."
+   },
+   "sessionId": "5b6be7c95ad6266b0460a1704488533c"
+}
+[2936:2987:0801/224037.593345:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[2936:2987:0801/224103.412890:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[2936:2987:0801/224153.872210:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[2936:2936:0801/224232.992871:ERROR:ui/compositor/compositor_animation_observer.cc:65] CompositorAnimationObserver is active for too long (68.7719s) location=Button@ui/views/controls/button/button.cc:669
+[2936:2987:0801/224319.999603:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+Warning: Vulkan shaderUniform*ArrayDynamicIndexing required.
+ - While initializing adapter (backend=BackendType::Vulkan)
+    at InitializeImpl (../../third_party/dawn/src/dawn/native/vulkan/PhysicalDeviceVk.cpp:235)
+
+[2936:2936:0801/224332.224894:ERROR:services/on_device_model/public/cpp/service_client.cc:37] Unexpected on_device_model service disconnect; reason: 1, description: Error loading backend.
+[2936:2987:0801/224720.322281:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[2936:2987:0801/225413.790570:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[1785605551.547][INFO]: [5b6be7c95ad6266b0460a1704488533c] COMMAND Quit {
+}
+[1785605551.548][DEBUG]: DevTools WebSocket Command: Browser.close (id=11) (session_id=) browser {
+}
+[2936:2936:0801/230235.135087:ERROR:ui/compositor/compositor_animation_observer.cc:65] CompositorAnimationObserver is active for too long (741.22s) location=Button@ui/views/controls/button/button.cc:669
+[2936:2936:0801/230235.135366:ERROR:ui/compositor/compositor_animation_observer.cc:65] CompositorAnimationObserver is active for too long (741.201s) location=Button@ui/views/controls/button/button.cc:669
+[2936:2936:0801/230235.135436:ERROR:ui/compositor/compositor_animation_observer.cc:65] CompositorAnimationObserver is active for too long (739.459s) location=Button@ui/views/controls/button/button.cc:669
+[1785605569.381][INFO]: [5b6be7c95ad6266b0460a1704488533c] RESPONSE Quit
+[1785605569.406][DEBUG]: Log type 'driver' lost 0 entries on destruction
+[1785605569.406][DEBUG]: Log type 'browser' lost 0 entries on destruction

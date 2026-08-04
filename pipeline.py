@@ -13,6 +13,7 @@ from exports.excel_reporter import (
     write_summary,
     save_workbook,
 )
+import math
 from utils.storage import load_last_seen, save_last_seen
 
 from config.keywords import is_upi_related_keyword
@@ -26,10 +27,11 @@ from collectors.reddit_collector import (
 )
 
 
+
 def run_pipeline(
     subreddits,
     posts_per_subreddit=25,
-    max_pages=8,
+    max_pages=2,
     time_filter="latest",
     progress_callback=None,
 ):
@@ -40,6 +42,13 @@ def run_pipeline(
     def update_progress(stage, percent):
         if progress_callback:
             progress_callback(stage, percent)
+    print("pipeline started")
+    if posts_per_subreddit <=25:
+        per_page_count = posts_per_subreddit
+        max_pages = 1
+    else:
+        per_page_count = 25
+        max_pages = math.ceil(posts_per_subreddit / 25)
 
     driver = get_driver()
     try:
@@ -64,7 +73,7 @@ def run_pipeline(
             entries = fetch_reddit_rss_paginated(
                 subreddit,
                 max_pages=max_pages,
-                per_page_count=posts_per_subreddit,
+                per_page_count=per_page_count,
                 stop_at_fullname=stop_at_fullname,
             )
 

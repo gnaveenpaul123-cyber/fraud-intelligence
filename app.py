@@ -1,5 +1,5 @@
 import streamlit as st
-from controller import start_investigation
+from worker import start_worker
 status_placeholder = st.empty()
 st.set_page_config(
     page_title="Fraud Intelligence Dashboard",
@@ -84,6 +84,9 @@ if st.session_state.screen == "setup":
                 subreddit_list = [item.strip() 
                                 for item in 
                                 subreddits.split(",") if item.strip()]
+                st.session_state.subreddit_list = subreddit_list
+                st.session_state.posts = posts
+                st.session_state.time_range = time_range
                 st.session_state.screen = "progress"
                 st.rerun()
     with right:
@@ -122,3 +125,13 @@ if st.session_state.screen == "progress":
     st.write("○ Screenshot")
 
     st.write("○ Excel Report")
+    if not st.session_state.investigation_started:
+
+        st.session_state.investigation_started = True
+
+        start_worker(
+            st.session_state.subreddit_list,
+            st.session_state.posts,
+            st.session_state.time_range,
+            progress_callback=None,
+)
